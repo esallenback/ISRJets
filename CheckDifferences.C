@@ -134,9 +134,9 @@ int main(int argc, char* argv[])
 	      }
 	    }
 	    while(commaCountUCSB!=5){
-	      outputFileUCSBPt << " ,";
-	      outputFileUCSBEta << " ,";
-	      outputFileUCSBPhi << " ,";
+	      outputFileUCSBPt << ",";
+	      outputFileUCSBEta << ",";
+	      outputFileUCSBPhi << ",";
 	      commaCountUCSB++;
 	    }
 	    outputFileUCSBPt << endl;
