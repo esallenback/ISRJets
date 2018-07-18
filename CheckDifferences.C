@@ -86,17 +86,17 @@ int main(int argc, char* argv[])
 
   //create files
   ofstream outputFileLPCPt;
-  outputFileLPCPt.open("LPCvetoElectronIDPt.csv");
+  outputFileLPCPt.open("LPClooseElectronIDPt.csv");
   ofstream outputFileLPCEta;
-  outputFileLPCEta.open("LPCvetoElectronIDEta.csv");
+  outputFileLPCEta.open("LPClooseElectronIDEta.csv");
   ofstream outputFileLPCPhi;
-  outputFileLPCPhi.open("LPCvetoElectronIDPhi.csv");
+  outputFileLPCPhi.open("LPClooseElectronIDPhi.csv");
   ofstream outputFileUCSBPt;
-  outputFileUCSBPt.open("UCSBvetoElectronIDPt.csv");
+  outputFileUCSBPt.open("UCSBlooseElectronIDPt.csv");
   ofstream  outputFileUCSBEta;
-  outputFileUCSBEta.open("UCSBvetoElectronIDEta.csv");
+  outputFileUCSBEta.open("UCSBlooseElectronIDEta.csv");
   ofstream outputFileUCSBPhi;
-  outputFileUCSBPhi.open("UCSBvetoElectronIDPhi.csv");
+  outputFileUCSBPhi.open("UCSBlooseElectronIDPhi.csv");
   int count = 0;
   outputFileUCSBPt << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<< endl;
   outputFileUCSBEta << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<< endl;
@@ -105,6 +105,7 @@ int main(int argc, char* argv[])
   outputFileLPCEta << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<<endl;
   outputFileLPCPhi << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<<endl;
 
+  int columnCount = 5;
   //loop through all events
   while(trLPC.getNextEvent())
     {
@@ -119,21 +120,28 @@ int main(int argc, char* argv[])
 	if(trLPC.getVar<int>("event")==trUCSB.getVar<int>("event"))
 	  {
 	    int commaCountUCSB=0;
-	    const std::vector<int>& vetoElectronIDVecUCSB = trUCSB.getVec<int>("vetoElectronID");
+	    const std::vector<int>& looseElectronIDVecUCSB = trUCSB.getVec<int>("looseElectronID");
 	    const std::vector<TLorentzVector>& elesLVecUCSB  = trUCSB.getVec<TLorentzVector>("elesLVec");
 	    outputFileUCSBPt << "Event "<< eventNumber;
 	    outputFileUCSBEta << "Event "<< eventNumber;
 	    outputFileUCSBPhi << "Event "<< eventNumber;
-	    //loops over to find vetoElectronID Pt, Phi, and Eta
-	    for(int i = 0; i < vetoElectronIDVecUCSB.size(); i++){
-	      if(vetoElectronIDVecUCSB[i] == 1){
+	    //loops over to find looseElectronID Pt, Phi, and Eta
+	    for(int i = 0; i < looseElectronIDVecUCSB.size(); i++){
+	      if(looseElectronIDVecUCSB[i] == 1){
 		outputFileUCSBPt << "," << elesLVecUCSB[i].Pt();
 		outputFileUCSBEta << "," << elesLVecUCSB[i].Eta();
 		outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi();
 		commaCountUCSB++;
 	      }
 	    }
-	    while(commaCountUCSB!=5){
+	    if(commaCountUCSB>columnCount)
+	      {
+		std::cout<<"ERROR with columnCount"<<std::endl;
+		std::cout<<"Event "<<eventNumber<< " has " <<commaCountUCSB<< " columns, but the column max is currently: "<<columnCount<<std::endl;
+		return 0;
+	      }
+
+	    while(commaCountUCSB!=columnCount){
 	      outputFileUCSBPt << ",";
 	      outputFileUCSBEta << ",";
 	      outputFileUCSBPhi << ",";
@@ -145,22 +153,28 @@ int main(int argc, char* argv[])
 	    sameEvent = true;
 	  }
       }
-      const std::vector<int>& vetoElectronIDVecLPC = trLPC.getVec<int>("vetoElectronID");      
+      const std::vector<int>& looseElectronIDVecLPC = trLPC.getVec<int>("looseElectronID");      
       const std::vector<TLorentzVector>& elesLVecLPC  = trLPC.getVec<TLorentzVector>("elesLVec");
       int commaCountLPC=0;
       outputFileLPCPt << "Event "<< eventNumber;
       outputFileLPCEta << "Event "<< eventNumber;
       outputFileLPCPhi << "Event "<< eventNumber;
-      //loops over to find vetoElectronID Pt, Phi, and Eta                                                                               
-      for(int i = 0; i < vetoElectronIDVecLPC.size(); i++){
-	if(vetoElectronIDVecLPC[i] == 1){
+      //loops over to find looseElectronID Pt, Phi, and Eta                                                                               
+      for(int i = 0; i < looseElectronIDVecLPC.size(); i++){
+	if(looseElectronIDVecLPC[i] == 1){
 	  outputFileLPCPt << "," << elesLVecLPC[i].Pt();
 	  outputFileLPCEta << "," << elesLVecLPC[i].Eta();
 	  outputFileLPCPhi << "," << elesLVecLPC[i].Phi();
 	  commaCountLPC++;
 	}
       }
-      while(commaCountLPC!=5){
+      if(commaCountLPC>columnCount)
+	{
+	  std::cout<<"ERROR with columnCount"<<std::endl;
+	  std::cout<<"Event "<<eventNumber<< " has " <<commaCountLPC<< " columns, but the column max is currently: "<<columnCount<<std::endl;
+	  return 0;
+	}
+      while(commaCountLPC!=columnCount){
 	outputFileLPCPt << ",";
 	outputFileLPCEta << ",";
 	outputFileLPCPhi << ",";
