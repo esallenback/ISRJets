@@ -86,109 +86,77 @@ int main(int argc, char* argv[])
 
   //create files
   ofstream outputFileLPCPt;
-  outputFileLPCPt.open("LPClooseElectronIDPt.csv");
+  outputFileLPCPt.open("LPCDifflooseElectronIDPt.csv");
   ofstream outputFileLPCEta;
-  outputFileLPCEta.open("LPClooseElectronIDEta.csv");
+  outputFileLPCEta.open("LPCDifflooseElectronIDEta.csv");
   ofstream outputFileLPCPhi;
-  outputFileLPCPhi.open("LPClooseElectronIDPhi.csv");
+  outputFileLPCPhi.open("LPCDifflooseElectronIDPhi.csv");
   ofstream outputFileUCSBPt;
-  outputFileUCSBPt.open("UCSBlooseElectronIDPt.csv");
+  outputFileUCSBPt.open("UCSBDifflooseElectronIDPt.csv");
   ofstream  outputFileUCSBEta;
-  outputFileUCSBEta.open("UCSBlooseElectronIDEta.csv");
+  outputFileUCSBEta.open("UCSBDifflooseElectronIDEta.csv");
   ofstream outputFileUCSBPhi;
-  outputFileUCSBPhi.open("UCSBlooseElectronIDPhi.csv");
+  outputFileUCSBPhi.open("UCSBDifflooseElectronIDPhi.csv");
   int count = 0;
-  outputFileUCSBPt << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<< endl;
-  outputFileUCSBEta << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<< endl;
-  outputFileUCSBPhi << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<< endl;
-  outputFileLPCPt << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<< endl;
-  outputFileLPCEta << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<<endl;
-  outputFileLPCPhi << "Event,Column 1,Column 2,Column 3,Column 4,Column 5"<<endl;
 
-  int columnCount = 5;
   //loop through all events
   while(trLPC.getNextEvent())
     {
       //get LPC event number to find the same UCSB event number
       int eventNumber = trLPC.getVar<int>("event");
       bool sameEvent = false;
+      bool different = true;
 
       //Find the UCSB event that corresponds to the LPC event
       //Print UCSB event information to respective files
-      for(int i = 0; sameEvent!=true;i++){
+      for(int i = 0; sameEvent!=true and different==true;i++){
 	trUCSB.goToEvent(i);
 	if(trLPC.getVar<int>("event")==trUCSB.getVar<int>("event"))
-	  {
-	    int commaCountUCSB=0;
-	    const std::vector<int>& looseElectronIDVecUCSB = trUCSB.getVec<int>("looseElectronID");
-	    const std::vector<TLorentzVector>& elesLVecUCSB  = trUCSB.getVec<TLorentzVector>("elesLVec");
-	    outputFileUCSBPt << "Event "<< eventNumber;
-	    outputFileUCSBEta << "Event "<< eventNumber;
-	    outputFileUCSBPhi << "Event "<< eventNumber;
-	    //loops over to find looseElectronID Pt, Phi, and Eta
-	    for(int i = 0; i < looseElectronIDVecUCSB.size(); i++){
-	      if(looseElectronIDVecUCSB[i] == 1){
-		outputFileUCSBPt << "," << elesLVecUCSB[i].Pt();
-		outputFileUCSBEta << "," << elesLVecUCSB[i].Eta();
-		outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi();
-		commaCountUCSB++;
-	      }
-	    }
-	    if(commaCountUCSB>columnCount)
-	      {
-		std::cout<<"ERROR with columnCount"<<std::endl;
-		std::cout<<"Event "<<eventNumber<< " has " <<commaCountUCSB<< " columns, but the column max is currently: "<<columnCount<<std::endl;
-		return 0;
-	      }
-
-	    while(commaCountUCSB!=columnCount){
-	      outputFileUCSBPt << ",";
-	      outputFileUCSBEta << ",";
-	      outputFileUCSBPhi << ",";
-	      commaCountUCSB++;
-	    }
-	    outputFileUCSBPt << endl;
-	    outputFileUCSBEta << endl;
-	    outputFileUCSBPhi << endl;
-	    sameEvent = true;
-	  }
-      }
-      const std::vector<int>& looseElectronIDVecLPC = trLPC.getVec<int>("looseElectronID");      
-      const std::vector<TLorentzVector>& elesLVecLPC  = trLPC.getVec<TLorentzVector>("elesLVec");
-      int commaCountLPC=0;
-      outputFileLPCPt << "Event "<< eventNumber;
-      outputFileLPCEta << "Event "<< eventNumber;
-      outputFileLPCPhi << "Event "<< eventNumber;
-      //loops over to find looseElectronID Pt, Phi, and Eta                                                                               
-      for(int i = 0; i < looseElectronIDVecLPC.size(); i++){
-	if(looseElectronIDVecLPC[i] == 1){
-	  outputFileLPCPt << "," << elesLVecLPC[i].Pt();
-	  outputFileLPCEta << "," << elesLVecLPC[i].Eta();
-	  outputFileLPCPhi << "," << elesLVecLPC[i].Phi();
-	  commaCountLPC++;
+	  {	
+		const std::vector<int>& looseElectronIDVecUCSB = trUCSB.getVec<int>("looseElectronID");
+	    	const std::vector<TLorentzVector>& elesLVecUCSB  = trUCSB.getVec<TLorentzVector>("elesLVec");
+	    	const std::vector<int>& looseElectronIDVecLPC = trLPC.getVec<int>("looseElectronID");      
+      	    	const std::vector<TLorentzVector>& elesLVecLPC  = trLPC.getVec<TLorentzVector>("elesLVec");
+      	    	
+		for(int i = 0; i < looseElectronIDVecUCSB.size(); i++){
+			if(looseElectronIDVecUCSB[i] == 1 or looseElectronIDVecLPC[i] == 1){
+				if(elesLVecUCSB[i].Pt()!=elesLVecLPC[i].Pt()){
+					outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
+					outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
+				}                                                                    
+				if(elesLVecUCSB[i].Phi()!=elesLVecLPC[i].Phi()){
+					outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
+					outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+				}
+				if(elesLVecUCSB[i].Eta()!=elesLVecLPC[i].Eta()){
+					outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
+					outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+				}
+			}
+		}
+		
+		outputFileLPCPt << endl;
+      		outputFileLPCEta << endl;
+      		outputFileLPCPhi << endl;
+		
+	    	outputFileUCSBPt << endl;
+	    	outputFileUCSBEta << endl;
+	    	outputFileUCSBPhi << endl;
+	    	sameEvent = true;
 	}
       }
-      if(commaCountLPC>columnCount)
-	{
-	  std::cout<<"ERROR with columnCount"<<std::endl;
-	  std::cout<<"Event "<<eventNumber<< " has " <<commaCountLPC<< " columns, but the column max is currently: "<<columnCount<<std::endl;
-	  return 0;
-	}
-      while(commaCountLPC!=columnCount){
-	outputFileLPCPt << ",";
-	outputFileLPCEta << ",";
-	outputFileLPCPhi << ",";
-	commaCountLPC++;
-      }
-      outputFileLPCPt << endl;
-      outputFileLPCEta << endl;
-      outputFileLPCPhi << endl;
-
       //Keeps track of count and prints onto screen for every 100 events processed
       count++;
       if(count%100==0)
 	std::cout<<count<<" done"<<std::endl;
-    }
+  }
+	
   //Closes all output files
   outputFileLPCPt.close();
   outputFileLPCEta.close();
