@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     {
       std::cerr <<"Please give 2 arguments: " << "filelist1 " << " " << "filelist2" << std::endl;
       std::cerr <<" Valid configurations are " << std::endl;
-      std::cerr <<" ./CheckDifferences.C FileList/UCSBData.list FileList/LPCData.C" << std::endl;
+      std::cerr <<" ./vetoElectronIDCD.C FileList/UCSBData.list FileList/LPCData.C" << std::endl;
       return -1;
     }
   const char *inputFileList1 = argv[1];
