@@ -118,59 +118,204 @@ int main(int argc, char* argv[])
 	    	const std::vector<int>& looseElectronIDVecLPC = trLPC.getVec<int>("looseElectronID");      
       	    	const std::vector<TLorentzVector>& elesLVecLPC  = trLPC.getVec<TLorentzVector>("elesLVec");
       	    	
-		for(int i = 0; i < looseElectronIDVecUCSB.size(); i++){
-			if((looseElectronIDVecUCSB[i] == 1) && (looseElectronIDVecLPC[i] == 1)){
-				if(elesLVecUCSB[i].Pt()!=elesLVecLPC[i].Pt()){
-					outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
-					outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
-					outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
-					outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
-				}                                                                    
-				if(elesLVecUCSB[i].Phi()!=elesLVecLPC[i].Phi()){
-					outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
-					outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
-					outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
-					outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+		if(looseElectronIDVecUCSB.size()>looseElectronIDVecLPC.size()){
+			for(int i = 0; i < looseElectronIDVecUCSB.size(); i++){
+				if((i<looseElectronIDVecLPC.size()){
+					//copy code in the for statement within else statement below
+					if((looseElectronIDVecUCSB[i] == 1) && (looseElectronIDVecLPC[i] == 1)){
+						if(elesLVecUCSB[i].Pt()!=elesLVecLPC[i].Pt()){
+							outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+							outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
+							outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+							outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
+						}     
+						if(elesLVecUCSB[i].Phi()!=elesLVecLPC[i].Phi()){
+							outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+							outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
+							outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+							outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+						}     
+						if(elesLVecUCSB[i].Eta()!=elesLVecLPC[i].Eta()){
+							outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+							outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
+							outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+							outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+						}     
+					}
+					else if((looseElectronIDVecUCSB[i] != 1) && (looseElectronIDVecLPC[i] == 1)){
+						//only print LPC
+						outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBEta << ","<<endl;
+						outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+						outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPhi << ","<<endl;
+						outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+						outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPt << ","<<endl;
+						outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
+					}
+					else if((looseElectronIDVecUCSB[i] != 1) && (looseElectronIDVecLPC[i] == 1)){
+						//only print UCSB
+						outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
+						outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCEta << ","<<endl;
+						outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
+						outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPhi << ","<<endl;
+						outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
+						outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPt << ","<<endl;
+					}
 				}
-				if(elesLVecUCSB[i].Eta()!=elesLVecLPC[i].Eta()){
+				else{
+					//Only print UCSB
 					outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
 					outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
 					outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
-					outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+					outputFileLPCEta << ","<<endl;
+					outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
+					outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPhi << ","<<endl;
+					outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
+					outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPt << ","<<endl;
 				}
 			}
-			if((looseElectronIDVecUCSB[i] == 1) && (looseElectronIDVecLPC[i] != 1))
-			{
-				outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
-				outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
-				outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i << "," <<endl;
-				outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
-				outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
-				outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i << "," <<endl;
-				outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
-				outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
-				outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i << "," <<endl;
-			}
-			if((looseElectronIDVecLPC[i] == 1) && (looseElectronIDVecUCSB[i] != 1))
-			{
-				outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
-				outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
-				outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i << "," <<endl;
-				outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
-				outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
-				outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i << "," <<endl;
-				outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
-				outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
-				outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i << "," <<endl;
+		}
+		else if(looseElectronIDVecUCSB.size()<looseElectronIDVecLPC.size()){
+			for(int i = 0; i < looseElectronIDVecLPC.size(); i++){
+				if(i<looseElectronIDVecUCSB.size()){
+					//copy code in the for statement within else statement below
+					if((looseElectronIDVecUCSB[i] == 1) && (looseElectronIDVecLPC[i] == 1)){
+						if(elesLVecUCSB[i].Pt()!=elesLVecLPC[i].Pt()){
+							outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+							outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
+							outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+							outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
+						}     
+						if(elesLVecUCSB[i].Phi()!=elesLVecLPC[i].Phi()){
+							outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+							outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
+							outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+							outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+						}     
+						if(elesLVecUCSB[i].Eta()!=elesLVecLPC[i].Eta()){
+							outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+							outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
+							outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+							outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+						}     
+					}
+					else if((looseElectronIDVecUCSB[i] != 1) && (looseElectronIDVecLPC[i] == 1)){
+						//only print LPC
+						outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBEta << ","<<endl;
+						outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+						outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPhi << ","<<endl;
+						outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+						outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPt << ","<<endl;
+						outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
+					}
+					else if((looseElectronIDVecUCSB[i] != 1) && (looseElectronIDVecLPC[i] == 1)){
+						//only print UCSB
+						outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
+						outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCEta << ","<<endl;
+						outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
+						outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPhi << ","<<endl;
+						outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
+						outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPt << ","<<endl;
+					}
+				}
+				else{
+					//Only print LPC
+					outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBEta << ","<<endl;
+					outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+					outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPhi << ","<<endl;
+					outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+					outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPt << ","<<endl;
+					outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
+				}
 			}
 		}
-		outputFileLPCPt << endl;
-      		outputFileLPCEta << endl;
-      		outputFileLPCPhi << endl;
-		
-	    	outputFileUCSBPt << endl;
-	    	outputFileUCSBEta << endl;
-	    	outputFileUCSBPhi << endl;
+		else{
+			for(int i = 0; i < looseElectronIDVecUCSB.size(); i++){
+				if((looseElectronIDVecUCSB[i] == 1) && (looseElectronIDVecLPC[i] == 1)){
+					if(elesLVecUCSB[i].Pt()!=elesLVecLPC[i].Pt()){
+						outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
+						outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
+					}     
+					if(elesLVecUCSB[i].Phi()!=elesLVecLPC[i].Phi()){
+						outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
+						outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+					}     
+					if(elesLVecUCSB[i].Eta()!=elesLVecLPC[i].Eta()){
+						outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
+						outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+						outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+					}     
+				}
+				else if((looseElectronIDVecUCSB[i] != 1) && (looseElectronIDVecLPC[i] == 1)){
+					//only print LPC
+					outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBEta << ","<<endl;
+					outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCEta << "," << elesLVecLPC[i].Eta()<<endl;
+					outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPhi << ","<<endl;
+					outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPhi << "," << elesLVecLPC[i].Phi()<<endl;
+					outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPt << ","<<endl;
+					outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPt << "," << elesLVecLPC[i].Pt()<<endl;
+				}
+				else if((looseElectronIDVecUCSB[i] != 1) && (looseElectronIDVecLPC[i] == 1)){
+					//only print UCSB
+					outputFileUCSBEta << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBEta << "," << elesLVecUCSB[i].Eta()<<endl;
+					outputFileLPCEta << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCEta << ","<<endl;
+					outputFileUCSBPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPhi << "," << elesLVecUCSB[i].Phi()<<endl;
+					outputFileLPCPhi << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPhi << ","<<endl;
+					outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
+					outputFileLPCPt << "Event "<< eventNumber << " at index: "<< i;
+					outputFileLPCPt << ","<<endl;
+				}
+			}
+		}
 	    	sameEvent = true;
 	}
       }
