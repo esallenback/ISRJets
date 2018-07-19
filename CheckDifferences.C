@@ -119,7 +119,7 @@ int main(int argc, char* argv[])
       	    	const std::vector<TLorentzVector>& elesLVecLPC  = trLPC.getVec<TLorentzVector>("elesLVec");
       	    	
 		for(int i = 0; i < looseElectronIDVecUCSB.size(); i++){
-			if(looseElectronIDVecUCSB[i] == 1 or looseElectronIDVecLPC[i] == 1){
+		  if((looseElectronIDVecUCSB[i] == 1) && (looseElectronIDVecLPC[i] == 1)){
 				if(elesLVecUCSB[i].Pt()!=elesLVecLPC[i].Pt()){
 					outputFileUCSBPt << "Event "<< eventNumber << " at index: "<< i;
 					outputFileUCSBPt << "," << elesLVecUCSB[i].Pt()<<endl;
