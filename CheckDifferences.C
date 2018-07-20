@@ -119,30 +119,30 @@ int main(int argc, char* argv[])
       	    	const std::vector<TLorentzVector>& elesLVecLPC  = trLPC.getVec<TLorentzVector>("elesLVec");
       	    	for(int y = 0; y < looseElectronIDVecUCSB.size(); y++){
 	     		if(looseElectronIDVecUCSB[y] == 1){
-				bool sameExists = false;
-				bool sameExists = false;
-				bool sameExists = false;
+				bool sameExistsPt = false;
+				bool sameExistsEta = false;
+				bool sameExistsPhi = false;
 				for(int z = 0; z < looseElectronIDVecLPC.size(); z++){
 					if(looseElectronIDVecLPC[z]==1){
-						if(elesLVecLPC[z].Pt==elesLVecUCSB[y].Pt()){
-							sameExistsPt = true;
-						}
-						if(elesLVecLPC[z].Eta==elesLVecUCSB[y].Eta()){
-							sameExistsEta = true;
-						}
-						if(elesLVecLPC[z].Phi==elesLVecUCSB[y].Phi()){
-							sameExistsPhi = true;
-						}
+					  if(elesLVecLPC[z].Pt()==elesLVecUCSB[y].Pt()){
+					    sameExistsPt = true;
+					  }
+					  if(elesLVecLPC[z].Eta()==elesLVecUCSB[y].Eta()){
+					    sameExistsEta = true;
+					  }
+					  if(elesLVecLPC[z].Phi()==elesLVecUCSB[y].Phi()){
+					    sameExistsPhi = true;
+					  }
 					}
 				}
 				if(sameExistsPt==false){
-					outputFileUCSBPt << "Event "<< eventNumber<<","<< elesLVecUCSB[i].Pt()<<endl;
+					outputFileUCSBPt << "Event "<< eventNumber<<","<< elesLVecUCSB[y].Pt()<<endl;
 				}
 				if(sameExistsEta==false){
-					outputFileUCSBEta << "Event "<< eventNumber<<","<< elesLVecUCSB[i].Eta()<<endl;
+					outputFileUCSBEta << "Event "<< eventNumber<<","<< elesLVecUCSB[y].Eta()<<endl;
 				}
 				if(sameExistsPhi==false){
-					outputFileUCSBPhi << "Event "<< eventNumber<<","<< elesLVecUCSB[i].Phi()<<endl;
+					outputFileUCSBPhi << "Event "<< eventNumber<<","<< elesLVecUCSB[y].Phi()<<endl;
 				}
 			}
 		}
@@ -152,25 +152,26 @@ int main(int argc, char* argv[])
 				bool sameExistsEta = false;
 				bool sameExistsPhi = false;
 				for(int z = 0; z <looseElectronIDVecUCSB.size(); z++){
-					if(looseElectronIDVecUCSB[z]==1){
-						if(elesLVecUCSB[z].Pt()==elesLVecLPC[y].Pt()){
-							sameExistsPt = true;
-						}
-						if(elesLVecUCSB[z].Eta()==elesLVecLPC[y].Eta()){
-							sameExistsEta = true;
-						}
-						if(elesLVecUCSB[z].Phi()==elesLVecLPC[y].Phi()){
-							sameExistsPhi = true;
-						}
-					}
+				  if(looseElectronIDVecUCSB[z]==1){
+					  if(elesLVecUCSB[z].Pt()==elesLVecLPC[y].Pt()){
+					    sameExistsPt = true;
+					  }
+					  if(elesLVecUCSB[z].Eta()==elesLVecLPC[y].Eta()){
+					    sameExistsEta = true;
+					  }
+					  if(elesLVecUCSB[z].Phi()==elesLVecLPC[y].Phi()){
+					    sameExistsPhi = true;
+					  }
+				  }
 				}
 				if(sameExistsPt==false){
-					outputFileLPCPt << "Event "<< eventNumber<<","<< elesLVecLPC[i].Pt()<<endl;
+				  outputFileLPCPt << "Event "<< eventNumber<<","<< elesLVecLPC[y].Pt()<<endl;
 				}
 				if(sameExistsEta==false){
-					outputFileLPCEta << "Event "<< eventNumber<<","<< elesLVecLPC[i].Eta()<<endl;
+				  outputFileLPCEta << "Event "<< eventNumber<<","<< elesLVecLPC[y].Eta()<<endl;
+				}
 				if(sameExistsPhi==false){
-					outputFileLPCPhi << "Event "<< eventNumber<<","<< elesLVecLPC[i].Phi()<<endl;
+				  outputFileLPCPhi << "Event "<< eventNumber<<","<< elesLVecLPC[y].Phi()<<endl;
 				}
 			}
 		}
@@ -180,7 +181,7 @@ int main(int argc, char* argv[])
       //Keeps track of count and prints onto screen for every 100 events processed
       count++;
       if(count%100==0){
-	//std::cout<<count<<" done"<<std::endl;
+	std::cout<<count<<" done"<<std::endl;
       }
     }
 	
