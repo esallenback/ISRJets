@@ -86,131 +86,111 @@ int main(int argc, char* argv[])
 
   //create files
   ofstream outputFileLPCPt;
-  outputFileLPCPt.open("LPCmetPt.csv");
-  //ofstream outputFileLPCEta;
-  //outputFileLPCEta.open("LPCDiffmediumPhotonIDEta.csv");
+  outputFileLPCPt.open("LPCDifflooseElectronIDPt.csv");
+  ofstream outputFileLPCEta;
+  outputFileLPCEta.open("LPCDifflooseElectronIDEta.csv");
   ofstream outputFileLPCPhi;
-  outputFileLPCPhi.open("LPCmetPhi.csv");
+  outputFileLPCPhi.open("LPCDifflooseElectronIDPhi.csv");
   ofstream outputFileUCSBPt;
-  outputFileUCSBPt.open("UCSBmetPt.csv");
-  //ofstream  outputFileUCSBEta;
-  //outputFileUCSBEta.open("UCSBDiffmediumPhotonIDEta.csv");
+  outputFileUCSBPt.open("UCSBDifflooseElectronIDPt.csv");
+  ofstream  outputFileUCSBEta;
+  outputFileUCSBEta.open("UCSBDifflooseElectronIDEta.csv");
   ofstream outputFileUCSBPhi;
-  outputFileUCSBPhi.open("UCSBmetPhi.csv");
+  outputFileUCSBPhi.open("UCSBDifflooseElectronIDPhi.csv");
   int count = 0;
-  
-  outputFileLPCPt<<"Event #,Value only in LPC"<<endl;
-  //outputFileLPCEta<<"Event #,Value only in LPC"<<endl;
-  outputFileLPCPhi<<"Event #,Value only in LPC"<<endl;
-  outputFileUCSBPt<<"Event #,Value only in UCSB"<<endl;
-  //outputFileUCSBEta<<"Event #,Value only in UCSB"<<endl;
-  outputFileUCSBPhi<<"Event #,Value only in UCSB"<<endl;
+
   //loop through all events
   while(trLPC.getNextEvent())
     {
       //get LPC event number to find the same UCSB event number
       int eventNumber = trLPC.getVar<int>("event");
       bool sameEvent = false;
+      bool different = true;
 
       //Find the UCSB event that corresponds to the LPC event
       //Print UCSB event information to respective files
-      for(int i = 0; sameEvent!=true;i++){
+      for(int i = 0; sameEvent!=true and different==true;i++){
 	trUCSB.goToEvent(i);
 	if(trLPC.getVar<int>("event")==trUCSB.getVar<int>("event"))
 	  {	
-	    if(trUCSB.getVar<double>("met")!=trLPC.getVar<double>("met")){
-	      outputFileLPCPt << "Event "<< eventNumber<<","<< trLPC.getVar<double>("met") <<endl;
-	      outputFileUCSBPt << "Event "<< eventNumber<<","<< trUCSB.getVar<double>("met") <<endl;
-	      
-	    }
-	    if(trUCSB.getVar<double>("metphi")!=trLPC.getVar<double>("metphi")){
-	      outputFileLPCPhi << "Event "<< eventNumber<<","<< trLPC.getVar<double>("metphi") <<endl;
-	      outputFileUCSBPhi << "Event "<< eventNumber<<","<< trUCSB.getVar<double>("metphi") <<endl;
-            }
-
-	    /*
-	    const std::vector<int>& mediumPhotonIDVecUCSB = trUCSB.getVec<int>("mediumPhotonID");
-	    const std::vector<TLorentzVector>& gammaLVecUCSB  = trUCSB.getVec<TLorentzVector>("gammaLVec");
-	    const std::vector<int>& mediumPhotonIDVecLPC = trLPC.getVec<int>("mediumPhotonID");      
-	    const std::vector<TLorentzVector>& gammaLVecLPC  = trLPC.getVec<TLorentzVector>("gammaLVec");
-	    for(int y = 0; y < mediumPhotonIDVecUCSB.size(); y++){
-	      if(mediumPhotonIDVecUCSB[y] == 1){
-		bool sameExistsPt = false;
-		bool sameExistsEta = false;
-		bool sameExistsPhi = false;
-		for(int z = 0; z < mediumPhotonIDVecLPC.size(); z++){
-		  if(mediumPhotonIDVecLPC[z]==1){
-		    if(gammaLVecLPC[z].Pt()==gammaLVecUCSB[y].Pt()){
-		      sameExistsPt = true;
-		    }
-		    if(gammaLVecLPC[z].Eta()==gammaLVecUCSB[y].Eta()){
-		      sameExistsEta = true;
-		    }
-		    if(gammaLVecLPC[z].Phi()==gammaLVecUCSB[y].Phi()){
-		      sameExistsPhi = true;
-		    }
-		  }
+		const std::vector<int>& looseElectronIDVecUCSB = trUCSB.getVec<int>("looseElectronID");
+	    	const std::vector<TLorentzVector>& elesLVecUCSB  = trUCSB.getVec<TLorentzVector>("elesLVec");
+	    	const std::vector<int>& looseElectronIDVecLPC = trLPC.getVec<int>("looseElectronID");      
+      	    	const std::vector<TLorentzVector>& elesLVecLPC  = trLPC.getVec<TLorentzVector>("elesLVec");
+      	    	for(int y = 0; y < looseElectronIDVecUCSB.size(); y++){
+	     		if(looseElectronIDVecUCSB[y] == 1){
+				bool sameExistsPt = false;
+				bool sameExistsEta = false;
+				bool sameExistsPhi = false;
+				for(int z = 0; z < looseElectronIDVecLPC.size(); z++){
+					if(looseElectronIDVecLPC[z]==1){
+					  if(elesLVecLPC[z].Pt()==elesLVecUCSB[y].Pt()){
+					    sameExistsPt = true;
+					  }
+					  if(elesLVecLPC[z].Eta()==elesLVecUCSB[y].Eta()){
+					    sameExistsEta = true;
+					  }
+					  if(elesLVecLPC[z].Phi()==elesLVecUCSB[y].Phi()){
+					    sameExistsPhi = true;
+					  }
+					}
+				}
+				if(sameExistsPt==false){
+					outputFileUCSBPt << "Event "<< eventNumber<<","<< elesLVecUCSB[y].Pt()<<endl;
+				}
+				if(sameExistsEta==false){
+					outputFileUCSBEta << "Event "<< eventNumber<<","<< elesLVecUCSB[y].Eta()<<endl;
+				}
+				if(sameExistsPhi==false){
+					outputFileUCSBPhi << "Event "<< eventNumber<<","<< elesLVecUCSB[y].Phi()<<endl;
+				}
+			}
 		}
-		if(sameExistsPt==false){
-		  outputFileUCSBPt << "Event "<< eventNumber<<","<< gammaLVecUCSB[y].Pt()<<endl;
+		for(int y = 0; y < looseElectronIDVecLPC.size(); y++){
+	     		if(looseElectronIDVecLPC[y] == 1){
+				bool sameExistsPt = false;
+				bool sameExistsEta = false;
+				bool sameExistsPhi = false;
+				for(int z = 0; z <looseElectronIDVecUCSB.size(); z++){
+				  if(looseElectronIDVecUCSB[z]==1){
+					  if(elesLVecUCSB[z].Pt()==elesLVecLPC[y].Pt()){
+					    sameExistsPt = true;
+					  }
+					  if(elesLVecUCSB[z].Eta()==elesLVecLPC[y].Eta()){
+					    sameExistsEta = true;
+					  }
+					  if(elesLVecUCSB[z].Phi()==elesLVecLPC[y].Phi()){
+					    sameExistsPhi = true;
+					  }
+				  }
+				}
+				if(sameExistsPt==false){
+				  outputFileLPCPt << "Event "<< eventNumber<<","<< elesLVecLPC[y].Pt()<<endl;
+				}
+				if(sameExistsEta==false){
+				  outputFileLPCEta << "Event "<< eventNumber<<","<< elesLVecLPC[y].Eta()<<endl;
+				}
+				if(sameExistsPhi==false){
+				  outputFileLPCPhi << "Event "<< eventNumber<<","<< elesLVecLPC[y].Phi()<<endl;
+				}
+			}
 		}
-		if(sameExistsEta==false){
-		  outputFileUCSBEta << "Event "<< eventNumber<<","<< gammaLVecUCSB[y].Eta()<<endl;
-		}
-		if(sameExistsPhi==false){
-		  outputFileUCSBPhi << "Event "<< eventNumber<<","<< gammaLVecUCSB[y].Phi()<<endl;
-		}
-	      }
-	    }
-	    */
-	    /*
-	    for(int y = 0; y < mediumPhotonIDVecLPC.size(); y++){
-	      if(mediumPhotonIDVecLPC[y] == 1){
-		bool sameExistsPt = false;
-		bool sameExistsEta = false;
-		bool sameExistsPhi = false;
-		for(int z = 0; z <mediumPhotonIDVecUCSB.size(); z++){
-		  if(mediumPhotonIDVecUCSB[z]==1){
-		    if(gammaLVecUCSB[z].Pt()==gammaLVecLPC[y].Pt()){
-		      sameExistsPt = true;
-		    }
-		    if(gammaLVecUCSB[z].Eta()==gammaLVecLPC[y].Eta()){
-		      sameExistsEta = true;
-		    }
-		    if(gammaLVecUCSB[z].Phi()==gammaLVecLPC[y].Phi()){
-		      sameExistsPhi = true;
-		    }
-		  }
-		}
-		if(sameExistsPt==false){
-		  outputFileLPCPt << "Event "<< eventNumber<<","<< gammaLVecLPC[y].Pt()<<endl;
-		}
-		if(sameExistsEta==false){
-		  outputFileLPCEta << "Event "<< eventNumber<<","<< gammaLVecLPC[y].Eta()<<endl;
-		}
-		if(sameExistsPhi==false){
-		  outputFileLPCPhi << "Event "<< eventNumber<<","<< gammaLVecLPC[y].Phi()<<endl;
-		}
-	      }
-	    }
-	    sameEvent = true;
+		sameEvent = true;
 	  }
-	    */
-	    sameEvent = true;
-	  }
-      //Keeps track of count and prints onto screen for every 100 events processed
       }
+      //Keeps track of count and prints onto screen for every 100 events processed
       count++;
-      if(count%1000==0){
+      if(count%100==0){
 	std::cout<<count<<" done"<<std::endl;
       }
     }
+	
   //Closes all output files
   outputFileLPCPt.close();
-  //outputFileLPCEta.close();
+  outputFileLPCEta.close();
   outputFileLPCPhi.close();
   outputFileUCSBPt.close();
-  //outputFileUCSBEta.close();
+  outputFileUCSBEta.close();
   outputFileUCSBPhi.close();
   return 0;
 }
