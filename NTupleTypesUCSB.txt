@@ -1,0 +1,351 @@
+                                                             jetsLVec
+                                                             aliasedMET
+                  std::vector<float, std::allocator<float> > sv_sv_costhetasvpv
+                  std::vector<float, std::allocator<float> > sv_sv_d3d
+                  std::vector<float, std::allocator<float> > sv_sv_dxyerr
+                  std::vector<float, std::allocator<float> > sv_sv_ndf
+                  std::vector<float, std::allocator<float> > sv_sv_chi2
+                  std::vector<float, std::allocator<float> > sv_sv_mva
+                  std::vector<float, std::allocator<float> > sv_sv_phi
+                  std::vector<float, std::allocator<float> > sv_sv_pt
+                                                unsigned int prodisotrks_nIsoTrksForVeto
+                                                       float evtWgtGen
+                                                unsigned int prodisotrks_loosenIsoTrks
+                std::vector<double, std::allocator<double> > prodisotrks_looseIsoTrks_pfActivity
+                std::vector<double, std::allocator<double> > prodisotrks_looseIsoTrks_iso
+                std::vector<double, std::allocator<double> > prodisotrks_looseIsoTrks_dz
+                  std::vector<float, std::allocator<float> > prodisotrks_looseIsoTrks_mass
+                                                        bool metfilter_dupECALClusters
+  std::vector<unsigned long, std::allocator<unsigned long> > trig_obj_filterflags
+                  std::vector<float, std::allocator<float> > trig_obj_pt
+    std::vector<unsigned int, std::allocator<unsigned int> > trig_bit_prescale
+                std::vector<double, std::allocator<double> > prodisotrks_looseIsoTrks_mtw
+  std::vector<unsigned long, std::allocator<unsigned long> > trig_bit_flag
+                      std::vector<int, std::allocator<int> > ak8_fatjet_sdsubjet2_jetMult
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet2_axis2
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet2_axis1
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet2_ptD
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet1_axis1
+                                                             aliasedJetsLVec
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet1_ptD
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdmass
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet2_mass
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet1_csv
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet1_mass
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet1_phi
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet1_eta
+                    std::vector<bool, std::allocator<bool> > trig_bit_pass
+                      std::vector<int, std::allocator<int> > ak8_fatjet_puppi_nsoftdropsubjets
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_tau3
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_tau1
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_mass
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_eta
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_pt
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet2_mass
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet2_eta
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet2_pt
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet1_csv
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet1_phi
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet1_eta
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet1_pt
+                  std::vector<float, std::allocator<float> > ak8_fatjet_csvboosted
+                    std::vector<bool, std::allocator<bool> > ak8_fatjet_muEnFrac
+                    std::vector<bool, std::allocator<bool> > ak8_fatjet_tightId
+                  std::vector<float, std::allocator<float> > ak8_fatjet_eta
+                  std::vector<float, std::allocator<float> > ak8_fatjet_pt
+                  std::vector<float, std::allocator<float> > ak8_fatjet_tau3
+                  std::vector<float, std::allocator<float> > ak8_fatjet_tau2
+                  std::vector<float, std::allocator<float> > ak8_fatjet_tau1
+                                                        bool metfilter_badpfmuon
+                  std::vector<float, std::allocator<float> > ak8_fatjet_prunedmass
+                    std::vector<bool, std::allocator<bool> > ak8_fatjet_looseId
+                  std::vector<float, std::allocator<float> > pho_pfpuiso
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet2_pt
+                  std::vector<float, std::allocator<float> > pho_pfneutraliso
+                  std::vector<float, std::allocator<float> > pho_sigietaieta
+                    std::vector<bool, std::allocator<bool> > pho_passElectronVeto
+                    std::vector<bool, std::allocator<bool> > pho_mediumid
+                    std::vector<bool, std::allocator<bool> > pho_looseid
+                  std::vector<float, std::allocator<float> > pho_mass
+                  std::vector<float, std::allocator<float> > pho_SCeta
+                      std::vector<int, std::allocator<int> > sv_sv_ntracks
+                  std::vector<float, std::allocator<float> > pho_eta
+                  std::vector<float, std::allocator<float> > pho_pt
+                  std::vector<float, std::allocator<float> > tau_dxysig
+                  std::vector<float, std::allocator<float> > pho_hOverE
+                  std::vector<float, std::allocator<float> > tau_mass
+                  std::vector<float, std::allocator<float> > tau_phi
+                  std::vector<float, std::allocator<float> > tau_pt
+                      std::vector<int, std::allocator<int> > mu_genmother_pdgid
+                      std::vector<int, std::allocator<int> > mu_gen_pdgid
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet1_mass
+                      std::vector<int, std::allocator<int> > mu_gen_status
+                  std::vector<float, std::allocator<float> > mu_gen_mass
+                                                        bool metfilter_badchcand
+                  std::vector<float, std::allocator<float> > mu_gen_eta
+                  std::vector<float, std::allocator<float> > prodisotrks_looseIsoTrks_phi
+                  std::vector<float, std::allocator<float> > mu_rhoiso
+                  std::vector<float, std::allocator<float> > mu_ptratio
+                  std::vector<float, std::allocator<float> > mu_miniisopu
+                  std::vector<float, std::allocator<float> > mu_annuluseacorr
+                  std::vector<float, std::allocator<float> > mu_miniisoeacorr
+                  std::vector<float, std::allocator<float> > mu_annulus
+                                                             met
+                  std::vector<float, std::allocator<float> > mu_miniiso
+                  std::vector<float, std::allocator<float> > sv_sv_eta
+                    std::vector<bool, std::allocator<bool> > mu_isStandAlone
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet2_csv
+                  std::vector<float, std::allocator<float> > pho_pfphotoniso
+                                                       float calomet_sumEt
+                  std::vector<float, std::allocator<float> > ak4_jet_neuHadEnFrac
+                  std::vector<float, std::allocator<float> > pho_pfchargediso
+                  std::vector<float, std::allocator<float> > ele_pt
+                  std::vector<float, std::allocator<float> > ak8_fatjet_cvsb
+                      std::vector<int, std::allocator<int> > ele_nLostHitsInner
+                  std::vector<float, std::allocator<float> > gen_hadronizedE
+                  std::vector<float, std::allocator<float> > sv_sv_dxy
+                                                       float nputrue
+std::vector<unsigned short, std::allocator<unsigned short> > gen_assocList
+                                                       float genqscale
+                  std::vector<float, std::allocator<float> > pho_full5x5sigietaieta
+std::vector<unsigned short, std::allocator<unsigned short> > gen_firstDau
+                  std::vector<float, std::allocator<float> > ak8_fatjet_phi
+                                                         int npu
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet2_phi
+                      std::vector<int, std::allocator<int> > ak4_jet_elMult
+std::vector<unsigned short, std::allocator<unsigned short> > gen_firstMom
+                  std::vector<float, std::allocator<float> > ak4_jet_neuEmEnFrac
+                  std::vector<float, std::allocator<float> > pfcand_dz
+                  std::vector<float, std::allocator<float> > ak4_jet_muEnFrac
+                  std::vector<float, std::allocator<float> > pfcand_totiso0p4
+                  std::vector<float, std::allocator<float> > gen_eta
+                      std::vector<int, std::allocator<int> > ak4_jet_chMult
+                  std::vector<float, std::allocator<float> > ak4_jet_mass
+                  std::vector<float, std::allocator<float> > ele_miniisoneutral
+                  std::vector<float, std::allocator<float> > mu_gen_pt
+                  std::vector<float, std::allocator<float> > mu_phi
+                                                unsigned int metfilter_int_bit_pass
+                  std::vector<float, std::allocator<float> > systweights
+                      std::vector<int, std::allocator<int> > ak4_jet_phoMult
+                                                        bool goodvertex
+                  std::vector<float, std::allocator<float> > trig_obj_eta
+                      std::vector<int, std::allocator<int> > mu_q
+                                                       float genmet_phi
+                                                       float rawmet_phi
+                  std::vector<float, std::allocator<float> > pfcand_totiso0p2
+                                                       float wgtXSec
+                      std::vector<int, std::allocator<int> > ak8_fatjet_nsoftdropsubjets
+                                                       float pv_z
+                                                       float metunclustrun2up_pt
+                                                       float puppimet_pt
+                                                unsigned int event
+                                                       float metnohf_sumEt
+                    std::vector<bool, std::allocator<bool> > ak4_jet_looseId
+std::vector<unsigned short, std::allocator<unsigned short> > ak4_prtassoc_partonIndex
+                      std::vector<int, std::allocator<int> > prodisotrks_looseIsoTrks_pdgId
+                  std::vector<float, std::allocator<float> > trig_obj_mass
+                                                       float metunclustrun2dn_pt
+std::vector<unsigned short, std::allocator<unsigned short> > gen_nMoms
+                                                         int nmefiltpartons
+                  std::vector<float, std::allocator<float> > mu_mass
+                                                       float calomet_pt
+                      std::vector<int, std::allocator<int> > prodisotrks_forVetoIsoTrks_idx
+                  std::vector<float, std::allocator<float> > ak8_fatjet_softdropmass
+                    std::vector<char, std::allocator<char> > ak4_prtassoc_jetCont
+                      std::vector<int, std::allocator<int> > ak8_fatjet_sdsubjet1_jetMult
+                  std::vector<float, std::allocator<float> > ak4_jet_chHadEnFrac
+                                                       float rawmet_sumEt
+                  std::vector<float, std::allocator<float> > pfcand_nearphoeta
+                                                        bool isfastsim
+                  std::vector<float, std::allocator<float> > ak4_jet_puId
+                  std::vector<float, std::allocator<float> > ak8_fatjet_cvsl
+                  std::vector<float, std::allocator<float> > gen_phi
+                                                       float puppimet_sumEt
+                  std::vector<float, std::allocator<float> > ak4_jet_phoEnFrac
+                    std::vector<bool, std::allocator<bool> > mu_isPF
+                                                       float genweight
+                  std::vector<float, std::allocator<float> > pfcand_chiso0p1
+                  std::vector<float, std::allocator<float> > ak8_fatjet_wmva
+                      std::vector<int, std::allocator<int> > gen_pdgId
+                                                       float xsection
+                                                       float pv_y
+                  std::vector<float, std::allocator<float> > ak8_fatjet_topmva
+                  std::vector<float, std::allocator<float> > pfcand_chiso0p4
+                                                       float calomet_phi
+                  std::vector<float, std::allocator<float> > ak4_jet_betaStar
+                  std::vector<float, std::allocator<float> > mu_miniisoneutral
+                                                       float met_sumEt
+                  std::vector<float, std::allocator<float> > pfcand_nearestTrkDR
+  std::vector<unsigned long, std::allocator<unsigned long> > tau_idflags
+                      std::vector<int, std::allocator<int> > ele_genmother_status
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet1_pt
+                  std::vector<float, std::allocator<float> > ele_pfdbetaiso
+                  std::vector<float, std::allocator<float> > ak4_jet_pt
+                                                       float met_phi
+                                                         int nmepartons
+                  std::vector<float, std::allocator<float> > mu_pt
+  std::vector<unsigned long, std::allocator<unsigned long> > trig_obj_pathflags
+                  std::vector<float, std::allocator<float> > ele_miniisocharged
+                  std::vector<float, std::allocator<float> > ak4_jet_pullrap
+                  std::vector<float, std::allocator<float> > pho_pfdbetaiso
+                  std::vector<float, std::allocator<float> > ak4_genjet_pullphi
+                  std::vector<float, std::allocator<float> > pfcand_nearphophi
+                  std::vector<float, std::allocator<float> > tau_dxy
+                  std::vector<float, std::allocator<float> > ele_annuluseacorr
+                  std::vector<float, std::allocator<float> > ele_gen_mass
+                                                         int nstdgenjets
+                  std::vector<float, std::allocator<float> > ak4_genjet_pt
+                      std::vector<int, std::allocator<int> > ak4_jet_muMult
+                  std::vector<float, std::allocator<float> > ele_phi
+                      std::vector<int, std::allocator<int> > pfcand_pdgid
+  std::vector<unsigned char, std::allocator<unsigned char> > gen_status
+                  std::vector<float, std::allocator<float> > ak4_jet_elEnFrac
+                  std::vector<float, std::allocator<float> > pfcand_mass
+                    std::vector<bool, std::allocator<bool> > ak4_jet_decayMatch
+                      std::vector<int, std::allocator<int> > ele_gen_status
+                  std::vector<float, std::allocator<float> > pho_r9
+                  std::vector<float, std::allocator<float> > pfcand_nearphopt
+                  std::vector<float, std::allocator<float> > mu_gen_phi
+                  std::vector<float, std::allocator<float> > pfcand_contJetDR
+                                                       float rawmet_pt
+                                                       float lhecentralweight
+                  std::vector<float, std::allocator<float> > pfcand_chiso0p3
+                  std::vector<float, std::allocator<float> > mu_miniisocharged
+                                                       float met_significance
+                  std::vector<float, std::allocator<float> > ak4_jet_csv
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcsv_probb
+                      std::vector<int, std::allocator<int> > pfcand_fromPV
+                  std::vector<float, std::allocator<float> > pfcand_taudisc_mtpresel
+                  std::vector<float, std::allocator<float> > gen_pt
+                  std::vector<float, std::allocator<float> > ele_sip3d
+                      std::vector<int, std::allocator<int> > pfcand_contJetIndex
+                                                         int npu_bxm1
+                  std::vector<float, std::allocator<float> > ak4_jet_area
+                  std::vector<float, std::allocator<float> > pfcand_pt
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet2_eta
+                                                         int npu_bx1
+                  std::vector<float, std::allocator<float> > mu_ptrel
+                                                       float met_pt
+                  std::vector<float, std::allocator<float> > tau_eta
+                  std::vector<float, std::allocator<float> > pfcand_d0
+                  std::vector<float, std::allocator<float> > ak4_genjet_mass
+                  std::vector<float, std::allocator<float> > pfcand_contJetCSV
+                  std::vector<float, std::allocator<float> > ak8_fatjet_csv
+                                                unsigned int npv
+                                                unsigned int run
+                                                unsigned int lumi
+                  std::vector<float, std::allocator<float> > pfcand_totiso0p1
+                  std::vector<float, std::allocator<float> > prodisotrks_looseIsoTrks_eta
+                                                       float rho
+                                                       float metnohf_phi
+                  std::vector<float, std::allocator<float> > pfcand_totiso0p3
+                                                         int bunch_spacing
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcsv_probbb
+                    std::vector<bool, std::allocator<bool> > ak4_jet_tightId
+                                                       float genmet_pt
+                                                       float pv_x
+                  std::vector<float, std::allocator<float> > ele_miniisopu
+                  std::vector<float, std::allocator<float> > ak4_jet_eta
+                    std::vector<bool, std::allocator<bool> > ele_passMediumIDOnly
+                  std::vector<float, std::allocator<float> > trig_obj_phi
+                  std::vector<float, std::allocator<float> > tau_dxyerr
+                  std::vector<float, std::allocator<float> > pfcand_phi
+                  std::vector<float, std::allocator<float> > gen_mass
+                  std::vector<float, std::allocator<float> > ak4_jet_ptraw
+                      std::vector<int, std::allocator<int> > ak4_jet_neuMult
+                  std::vector<float, std::allocator<float> > ak4_jet_cmva
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcmva_probbb
+                  std::vector<float, std::allocator<float> > ak4_jet_cvsl
+                  std::vector<float, std::allocator<float> > mu_sip3d
+                  std::vector<float, std::allocator<float> > ak4_jet_cvsb
+                      std::vector<int, std::allocator<int> > ele_gen_pdgid
+                      std::vector<int, std::allocator<int> > ak4_jet_neuHadMult
+                  std::vector<float, std::allocator<float> > ak4_jet_uncertainty
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcsv_probudsg
+                    std::vector<bool, std::allocator<bool> > pho_tightid
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcsv_probc
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcsv_probcc
+                                                        bool process
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcmva_probudsg
+                  std::vector<float, std::allocator<float> > ak4_jet_chEmEnFrac
+                  std::vector<float, std::allocator<float> > ele_eta
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcmva_probb
+                  std::vector<float, std::allocator<float> > ak4_genjet_pullrap
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcmva_probc
+                  std::vector<float, std::allocator<float> > ak4_genjet_phi
+                      std::vector<int, std::allocator<int> > pfcand_q
+std::vector<unsigned short, std::allocator<unsigned short> > ak4_jet_jetMult
+                  std::vector<float, std::allocator<float> > pfcand_taudisc_dphipresel
+                  std::vector<float, std::allocator<float> > ak4_jet_deepcmva_probcc
+                  std::vector<float, std::allocator<float> > ak4_genjet_axis2
+                  std::vector<float, std::allocator<float> > ele_ptratio
+                    std::vector<bool, std::allocator<bool> > ele_tightid
+                  std::vector<float, std::allocator<float> > ak4_genjet_eta
+  std::vector<unsigned char, std::allocator<unsigned char> > ak4_genjet_flavor
+                  std::vector<float, std::allocator<float> > sv_sv_d3derr
+                  std::vector<float, std::allocator<float> > mu_eta
+                  std::vector<float, std::allocator<float> > ak4_jet_ptD
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_tau2
+                  std::vector<float, std::allocator<float> > ak4_jet_axis1
+                  std::vector<float, std::allocator<float> > pfcand_chiso0p2
+                  std::vector<float, std::allocator<float> > ele_rhoiso
+                  std::vector<float, std::allocator<float> > ak4_jet_axis2
+                  std::vector<short, std::allocator<short> > ak4_jet_genIndex
+                  std::vector<float, std::allocator<float> > ak4_jet_charge
+                      std::vector<int, std::allocator<int> > ak4_jet_chHadMult
+                    std::vector<bool, std::allocator<bool> > mu_isMediumHIP
+                  std::vector<float, std::allocator<float> > ak4_genjet_charge
+                  std::vector<float, std::allocator<float> > ak4_genjet_ptD
+                  std::vector<float, std::allocator<float> > ak4_genjet_axis1
+                      std::vector<int, std::allocator<int> > tau_q
+std::vector<unsigned short, std::allocator<unsigned short> > ak4_genjet_jetMult
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_sdsubjet2_phi
+                  std::vector<float, std::allocator<float> > ele_SCeta
+                  std::vector<float, std::allocator<float> > ak4_jet_pullphi
+                  std::vector<float, std::allocator<float> > ele_mass
+                  std::vector<float, std::allocator<float> > pho_phi
+                  std::vector<float, std::allocator<float> > pfcand_trackiso
+                      std::vector<int, std::allocator<int> > ele_q
+                  std::vector<float, std::allocator<float> > ele_r9
+                                                        bool metfilter_haveHitsNotReplaced
+                  std::vector<float, std::allocator<float> > ele_d0
+                  std::vector<float, std::allocator<float> > ak8_fatjet_puppi_phi
+                  std::vector<float, std::allocator<float> > ele_dz
+                  std::vector<float, std::allocator<float> > ele_annulus
+                    std::vector<bool, std::allocator<bool> > ele_vetoid
+std::vector<unsigned short, std::allocator<unsigned short> > ak4_prtassoc_jetIndex
+                    std::vector<bool, std::allocator<bool> > ele_passLooseIDOnly
+                    std::vector<bool, std::allocator<bool> > ele_mediumid
+                  std::vector<float, std::allocator<float> > ele_miniiso
+                std::vector<double, std::allocator<double> > prodisotrks_looseIsoTrks_charge
+                    std::vector<bool, std::allocator<bool> > pho_hasPixelSeed
+                  std::vector<float, std::allocator<float> > ele_miniisoeacorr
+                  std::vector<float, std::allocator<float> > sv_sv_mass
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet2_csv
+                      std::vector<int, std::allocator<int> > ele_nExpHitsInner
+                  std::vector<float, std::allocator<float> > prodisotrks_looseIsoTrks_pt
+                  std::vector<float, std::allocator<float> > ak8_fatjet_rawmass
+                                                       float puppimet_phi
+                    std::vector<bool, std::allocator<bool> > ele_looseid
+                  std::vector<float, std::allocator<float> > mu_d0
+                    std::vector<bool, std::allocator<bool> > ele_passConvVeto
+                    std::vector<bool, std::allocator<bool> > ele_passVetoIDOnly
+                  std::vector<float, std::allocator<float> > ele_ptrel
+                  std::vector<float, std::allocator<float> > ele_gen_pt
+                      std::vector<int, std::allocator<int> > prodisotrks_looseIsoTrks_idx
+                  std::vector<float, std::allocator<float> > pfcand_eta
+                  std::vector<float, std::allocator<float> > ele_gen_eta
+                  std::vector<float, std::allocator<float> > ele_gen_phi
+                      std::vector<int, std::allocator<int> > ele_genmother_pdgid
+                      std::vector<int, std::allocator<int> > mu_genmother_status
+                  std::vector<float, std::allocator<float> > mu_dz
+                                                       float metnohf_pt
+                  std::vector<float, std::allocator<float> > mu_pfdbetaiso
+                  std::vector<float, std::allocator<float> > ak4_jet_phi
+                    std::vector<bool, std::allocator<bool> > mu_isLoose
+                    std::vector<bool, std::allocator<bool> > mu_isMedium
+                  std::vector<float, std::allocator<float> > ak8_fatjet_sdsubjet1_axis2
+                    std::vector<bool, std::allocator<bool> > mu_isTight
+                    std::vector<bool, std::allocator<bool> > mu_isGlobal
+std::vector<unsigned short, std::allocator<unsigned short> > gen_nDaus
+                    std::vector<bool, std::allocator<bool> > mu_isTracker

@@ -1,0 +1,202 @@
+                                                      double aliasedMET
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > genjetsLVec
+                std::vector<double, std::allocator<double> > recoJetsmuonEnergyFraction
+                std::vector<double, std::allocator<double> > genMatched
+                      std::vector<int, std::allocator<int> > W_tau_nuVec
+                                                      double stored_weight
+                                                      double calomet
+                                                      double evtWeight
+                std::vector<double, std::allocator<double> > recoJetschargedHadronEnergyFraction
+      std::vector<std::string, std::allocator<std::string> > genDecayStrVec
+                std::vector<double, std::allocator<double> > svCosThetaSVPS
+                                                unsigned int HBHENoiseFilter
+                std::vector<double, std::allocator<double> > svD3D
+                std::vector<double, std::allocator<double> > svDXYerr
+                std::vector<double, std::allocator<double> > W_emu_pfActivityVec
+                std::vector<double, std::allocator<double> > svNDF
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > aliasedJetsLVec
+                std::vector<double, std::allocator<double> > recoJetsJecUnc
+                std::vector<double, std::allocator<double> > trksForIsoVetocharge
+                std::vector<double, std::allocator<double> > svETA
+                std::vector<double, std::allocator<double> > svPT
+                                                         int noBadMuonsFilter
+                std::vector<double, std::allocator<double> > photonEta
+                      std::vector<int, std::allocator<int> > TriggerPrescales
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > selGenParticle
+                std::vector<double, std::allocator<double> > photonPt
+                std::vector<double, std::allocator<double> > pfGammaIsoRhoCorr
+                std::vector<double, std::allocator<double> > pfNeutralIso
+                                                      double dPhi2_CUT
+                std::vector<double, std::allocator<double> > prodJetsNoLep_puppitau2
+                std::vector<double, std::allocator<double> > pfChargedIso
+                std::vector<double, std::allocator<double> > recoJetsBtag_0
+                std::vector<double, std::allocator<double> > sigmaIetaIeta
+                  std::vector<float, std::allocator<float> > elesMtw
+                                                unsigned int BadPFMuonFilter
+    std::vector<unsigned int, std::allocator<unsigned int> > tightPhotonID
+                std::vector<double, std::allocator<double> > prodJetsNoLep_qgPtD
+                std::vector<double, std::allocator<double> > metMagUp
+                  std::vector<float, std::allocator<float> > elesRelIso
+                                                unsigned int tightlepvetoJetID
+                                                      double genmet
+                                                unsigned int tightJetID
+                                                         int np1
+                                                      double metphi
+                                                      double mht
+                                                         int goodVerticesFilter
+                      std::vector<int, std::allocator<int> > selPDGid
+                                                      double dPhi1_CUT
+                std::vector<double, std::allocator<double> > qgAxis2
+    std::vector<unsigned int, std::allocator<unsigned int> > elesisEB
+                                                      double x2
+                                                         int nMuons
+                                                      double dPhi0_CUT
+                std::vector<double, std::allocator<double> > recoJetschargedEmEnergyFraction
+                std::vector<double, std::allocator<double> > trksForIsoVetopfActivity
+                std::vector<double, std::allocator<double> > prodJetsNoLep_puppitau3
+                std::vector<double, std::allocator<double> > loose_isoTrks_charge
+                                                      double met
+                std::vector<double, std::allocator<double> > hasPixelSeed
+                std::vector<double, std::allocator<double> > puppitau1
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > muonsLVec
+                                                      double calometphi
+                                                         int nIsoTrks_CUT
+                                                         int nm1
+                std::vector<double, std::allocator<double> > pfNeutralIsoRhoCorr
+                                                         int EcalDeadCellTriggerPrimitiveFilter
+                std::vector<double, std::allocator<double> > puppitau2
+                                                      double ht
+                                                unsigned int BadChargedCandidateFilter
+                                                         int ecalBadCalibFilter
+                  std::vector<float, std::allocator<float> > muonsCharge
+                                                unsigned int HBHEIsoNoiseFilter
+                                                      double genHT
+                                                      double q
+                std::vector<double, std::allocator<double> > svMass
+                std::vector<double, std::allocator<double> > recoJetsJecUncLepCleaned
+                  std::vector<float, std::allocator<float> > muonsMtw
+                                                      double tru_npv
+                                                      double mhtphi
+                                                unsigned int looseJetID
+                                                      double x1
+                std::vector<double, std::allocator<double> > recoJetsmuonEnergyFractionLepCleaned
+                      std::vector<int, std::allocator<int> > genDecayIdxVec
+                std::vector<double, std::allocator<double> > isEB
+                std::vector<double, std::allocator<double> > prodJetsNoLep_puppiSubJetsBdisc
+                                                         int nMuons_CUT
+                      std::vector<int, std::allocator<int> > loose_isoTrks_pdgId
+                std::vector<double, std::allocator<double> > pfChargedIsoRhoCorr
+                                                         int METFilters
+                                                         int duplicateMuonsFilter
+                      std::vector<int, std::allocator<int> > elesFlagVeto
+                  std::vector<float, std::allocator<float> > muonspfActivity
+                std::vector<double, std::allocator<double> > recoJetsneutralEmEnergyFraction
+                std::vector<double, std::allocator<double> > hadTowOverEM
+                std::vector<double, std::allocator<double> > recoJetsCharge_0
+                                                         int loose_nIsoTrks
+                std::vector<double, std::allocator<double> > qgLikelihood
+                std::vector<double, std::allocator<double> > pfGammaIso
+                std::vector<double, std::allocator<double> > prodJetsNoLep_puppisoftDropMass
+                std::vector<double, std::allocator<double> > svPhi
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > elesLVec
+                                                unsigned int run
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > svLVec
+                                                         int nElectrons
+                                                      double avg_npv
+                                                         int id2
+                std::vector<double, std::allocator<double> > photonPhi
+                                                unsigned int tightJetID_NoLep
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > prodJetsNoLep_puppiJetsLVec
+                                                        long event
+                  std::vector<float, std::allocator<float> > muonsRelIso
+                std::vector<double, std::allocator<double> > recoJetsneutralEmEnergyFractionLepCleaned
+                                                         int NJetsISR
+                                                         int nJets_CUT
+                                                         int nJets
+                std::vector<double, std::allocator<double> > svNTracks
+                                                         int nElectrons_CUT
+                                                         int vtxSize
+                      std::vector<int, std::allocator<int> > elesFlagMedium
+                                                         int npv
+                std::vector<double, std::allocator<double> > passElectronVeto
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > prodJetsNoLep_puppiSubJetsLVec
+                std::vector<double, std::allocator<double> > puppitau3
+                                                         int n0
+                std::vector<double, std::allocator<double> > loose_isoTrks_pfActivity
+                std::vector<double, std::allocator<double> > puppiSubJetsBdisc
+                      std::vector<int, std::allocator<int> > genDecayMomIdxVec
+                std::vector<double, std::allocator<double> > prodJetsNoLep_qgLikelihood
+                std::vector<double, std::allocator<double> > prodJetsNoLep_qgAxis2
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > jetsLVecLepCleaned
+                std::vector<double, std::allocator<double> > recoJetschargedEmEnergyFractionLepCleaned
+                std::vector<double, std::allocator<double> > recoJetsCharge_0_LepCleaned
+                std::vector<double, std::allocator<double> > loose_isoTrks_iso
+                      std::vector<int, std::allocator<int> > PassTrigger
+                std::vector<double, std::allocator<double> > recoJetsJecScaleRawToFull_LepCleaned
+                std::vector<double, std::allocator<double> > prodJetsNoLep_puppitau1
+                std::vector<double, std::allocator<double> > W_tau_emu_pfActivityVec
+                std::vector<double, std::allocator<double> > W_tau_prongs_pfActivityVec
+                std::vector<double, std::allocator<double> > svChi2
+                      std::vector<int, std::allocator<int> > eleMatchedJetIdx
+                                                         int CSCTightHaloFilter
+                std::vector<double, std::allocator<double> > recoJetsJecScaleRawToFull
+                std::vector<double, std::allocator<double> > trksForIsoVetodz
+                std::vector<double, std::allocator<double> > trksForIsoVetoiso
+                std::vector<double, std::allocator<double> > loose_isoTrks_dz
+                std::vector<double, std::allocator<double> > loose_isoTrks_mtw
+                      std::vector<int, std::allocator<int> > genDecayMomRefVec
+                std::vector<double, std::allocator<double> > recoJetschargedHadronEnergyFractionLepCleaned
+    std::vector<unsigned int, std::allocator<unsigned int> > mediumElectronID
+                std::vector<double, std::allocator<double> > puppisoftDropMass
+                std::vector<double, std::allocator<double> > metMagDown
+                      std::vector<int, std::allocator<int> > trksForIsoVetoMatchedJetIdx
+                      std::vector<int, std::allocator<int> > muonsFlagTight
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > loose_isoTrksLVec
+                std::vector<double, std::allocator<double> > metPhiUp
+                std::vector<double, std::allocator<double> > metPhiDown
+                  std::vector<float, std::allocator<float> > muonsMiniIso
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > puppiJetsLVec
+                                                unsigned int looseJetID_NoLep
+                  std::vector<float, std::allocator<float> > elesCharge
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > jetsLVec
+                  std::vector<float, std::allocator<float> > elesMiniIso
+                      std::vector<int, std::allocator<int> > W_tau_prongsVec
+                                                      double genmetphi
+                  std::vector<float, std::allocator<float> > elespfActivity
+                                                         int badMuonsFilter
+                      std::vector<int, std::allocator<int> > muonsFlagMedium
+                      std::vector<int, std::allocator<int> > recoJetsFlavor
+                                                unsigned int lumi
+                      std::vector<int, std::allocator<int> > qgMult
+                      std::vector<int, std::allocator<int> > muMatchedJetIdx
+                std::vector<double, std::allocator<double> > svD3Derr
+                      std::vector<int, std::allocator<int> > looseisoTrksMatchedJetIdx
+                      std::vector<int, std::allocator<int> > prodJetsNoLep_qgMult
+                      std::vector<int, std::allocator<int> > genDecayPdgIdVec
+                                                unsigned int tightlepvetoJetID_NoLep
+                      std::vector<int, std::allocator<int> > W_emuVec
+                      std::vector<int, std::allocator<int> > W_tauVec
+                      std::vector<int, std::allocator<int> > trksForIsoVetopdgId
+                std::vector<double, std::allocator<double> > qgPtD
+                      std::vector<int, std::allocator<int> > trksForIsoVetoidx
+                      std::vector<int, std::allocator<int> > loose_isoTrks_idx
+                                                         int globalTightHalo2016Filter
+                      std::vector<int, std::allocator<int> > forVetoIsoTrksidx
+    std::vector<unsigned int, std::allocator<unsigned int> > loosePhotonID
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > genDecayLVec
+    std::vector<unsigned int, std::allocator<unsigned int> > mediumPhotonID
+                                                         int id1
+    std::vector<unsigned int, std::allocator<unsigned int> > nonPrompt
+    std::vector<unsigned int, std::allocator<unsigned int> > vetoElectronID
+    std::vector<unsigned int, std::allocator<unsigned int> > looseElectronID
+    std::vector<unsigned int, std::allocator<unsigned int> > tightElectronID
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > genPartonLVec
+      std::vector<std::string, std::allocator<std::string> > TriggerNames
+                std::vector<double, std::allocator<double> > recoJetsBtag_0_LepCleaned
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > gammaLVec
+                std::vector<double, std::allocator<double> > svDXY
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > gammaLVecGen
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > svSoftLVec
+                      std::vector<int, std::allocator<int> > W_tau_emuVec
+                std::vector<double, std::allocator<double> > ScaleWeightsMiniAOD
+std::vector<TLorentzVector, std::allocator<TLorentzVector> > puppiSubJetsLVec
