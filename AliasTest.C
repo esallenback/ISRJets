@@ -27,7 +27,7 @@
     std::cerr <<" ./LostLepton_MuCS_TTbar runlist_ttjets.txt isoplots.root" << std::endl;
     return -1;
   }
-   //----------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   //  Input and output files
   //----------------------------------------------------------------------------
   const char *inputFileList = argv[1];
@@ -64,7 +64,7 @@
   
   //BaselineVessel blv(tr);
   //tr.registerFunction(blv);
-  std::cout << "total entries" << tr.getNEntries() << std::endl;
+  std::cout << "Total entries: " << tr.getNEntries() << std::endl;
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Initialize output file ~~~~~
   std::shared_ptr<TFile> OutFile(new TFile(outFileName, "RECREATE"));
     TH1* totalevents = new TH1D("TotalEvents", "Total Events", 2, 0, 10);
@@ -93,28 +93,32 @@
     TH1* muonsPhi = new TH1D("muonsPhi", "MuonPhi", 30, -TMath::Pi(), TMath::Pi());
     TH1* elesCharge = new TH1D("elesCharge","ElectronCharge", 30, -50, 50);
     TH1* elesMiniIso = new TH1D("elesMiniIso", "ElectronMiniIso", 30, 0, 500);
-    //TH1* elesFlagVetoPt = new TH1D("elesFlagVetoPt","ElectronFlagVetoPt", 30, 0, 500);
-    //TH1* elesFlagVetoEta = new TH1D("elesFlagVetoEta","ElectronFlagVetoEta", 30, -2.5, 2.5);
-    //TH1* elesFlagVetoPhi = new TH1D("elesFlagVetoPhi","ElectronFlagVetoPhi", 30, -TMath::Pi(), TMath::Pi());
+    /*
+    TH1* elesFlagVetoPt = new TH1D("elesFlagVetoPt","ElectronFlagVetoPt", 30, 0, 500);
+    TH1* elesFlagVetoEta = new TH1D("elesFlagVetoEta","ElectronFlagVetoEta", 30, -TMath::Pi(), TMath::Pi());
+    TH1* elesFlagVetoPhi = new TH1D("elesFlagVetoPhi","ElectronFlagVetoPhi", 30, -TMath::Pi(), TMath::Pi());
+    */
     TH1* vetoElectronIDPt = new TH1D("vetoElectronIDPt", "vetoElectronIDPt", 30, 0, 500);
-    TH1* vetoElectronIDEta = new TH1D("vetoElectronIDEta","vetoElectronIDEta", 30, -2.5, 2.5);
+    TH1* vetoElectronIDEta = new TH1D("vetoElectronIDEta","vetoElectronIDEta", 30, -TMath::Pi(), TMath::Pi());
     TH1* vetoElectronIDPhi = new TH1D("vetoElectronIDPhi","vetoElectronIDPhi", 30, -TMath::Pi(), TMath::Pi());
+    /*
     TH1* elesFlagMediumPt = new TH1D("elesFlagMediumPt", "ElectronFlagMediumPt", 30, 0, 500);
     TH1* elesFlagMediumEta = new TH1D("elesFlagMediumEta", "ElectronFlagMediumEta", 30, -3, 3);
     TH1* elesFlagMediumPhi = new TH1D("elesFlagMediumPhi", "EletronFlagMediumPhi", 30, -TMath::Pi(), TMath::Pi());
+    */
     TH1* elesPt = new TH1D("elesPt", "ElectronPt", 30, 0, 1000);
     TH1* elesEta = new TH1D("elesEta", "ElectronEta", 30, -3, 3);
     TH1* elesPhi = new TH1D("elesPhi", "ElectronPhi", 30, -TMath::Pi(), TMath::Pi());
-    TH1* jetPt = new TH1D("jetPt","Jet pt",30, 0,1000);
-    TH1* jetPhi = new TH1D("jetPhi","Jet phi",30,-5,5);
-    TH1* jetEta = new TH1D("jetEta","Jet eta",30,-3,3);
+    TH1* jetPt = new TH1D("jetPt_with_20_GeV_Cut","Jet pt",30, 0,1000);
+    TH1* jetPhi = new TH1D("jetPhi_with_20_GeV_Cut","Jet phi",30,-5,5);
+    TH1* jetEta = new TH1D("jetEta_with_20_GeV_Cut","Jet eta",30,-3,3);
      TH1* miniIsoDiff = new TH1D("miniIsoDiff","Mini Iso Diff",30,-5,5);
     //TH1* ak8JetPt = new TH1D("ak8JetPt","ak8 Jet pt",30, 0,1000);
     //TH1* ak8JetPhi = new TH1D("ak8JetPhi","ak8 Jet phi",30,-5,5);
     //TH1* ak8JetEta = new TH1D("ak8JetEta","ak8 Jet eta",30,-3,3);
-     TH1* recoJetsBtag_0Pt = new TH1D("recoJetsBtag_0Pt","B-tagged Jet Pt",30, 0,1000);
-    TH1* recoJetsBtag_0Eta = new TH1D("recoJetsBtag_0Eta","B-Tagged Jet Eta",30,-3,3);
-    TH1* recoJetsBtag_0Phi = new TH1D("recoJetsBtag_0Phi","B-tagged Jet Phi",30,-5,5);
+     //TH1* recoJetsBtag_0Pt = new TH1D("recoJetsBtag_0Pt","B-tagged Jet Pt",30, 0,1000);
+     //TH1* recoJetsBtag_0Eta = new TH1D("recoJetsBtag_0Eta","B-Tagged Jet Eta",30,-3,3);
+     //TH1* recoJetsBtag_0Phi = new TH1D("recoJetsBtag_0Phi","B-tagged Jet Phi",30,-5,5);
     TH1* leadingJetPt = new TH1D("leadingJetPt","Leading Jet pt",30,0,1000);
     TH1* leadingJetPhi = new TH1D("leadingJetPhi","Leading Jet phi",30,-5,5);
     TH1* leadingJetEta = new TH1D("leadingJetEta","Leading Jet eta",30,-3,3);
@@ -129,47 +133,28 @@
     TH1* fourthLeadingJetEta = new TH1D("fourthLeadingJetEta","Fourth Leading Jet eta",30,-3,3);
     TH1* metPt = new TH1D("metPt","MET pt",30,0,1000);
     TH1* metPhi = new TH1D("metPhi","MET phi",30,-5,5);
-    TH1* isotracksPt = new TH1D("isotracksPt","Isotracks Pt", 30, 0, 500);
-    TH1* isotracksEta = new TH1D("isotracksEta","Isotracks Eta", 30, -3, 3);
-    TH1* isotracksPhi = new TH1D("isotracksPhi","Isotracks Phi", 30, -TMath::Pi(), TMath::Pi());
-    int elesCount = 0;
-    
-    int leadingJets = 0;
-    int secondLeadingJets = 0;
-    int thirdLeadingJets = 0;
-    int fourthLeadingJets =0;
-    int totalJets =0;
-     int countPt5 = 0;
-    int countPt10 = 0;
-    int countPt15 = 0;
-    int countPt20 = 0;
-    int countPt25 = 0;
-    int countPt30 = 0;
-    int countPt35 = 0;
-    int count =0;
-    int different=0;
-    int countIso=0;
-    int countM=0;
-    std::cout<<"debug"<<std::endl;
+    TH1* isotracksPt = new TH1D("isotracksPt_with_10_GeV_Cut","Isotracks Pt", 30, 0, 500);
+    TH1* isotracksEta = new TH1D("isotracksEta_with_10_GeV_Cut","Isotracks Eta", 30, -3, 3);
+    TH1* isotracksPhi = new TH1D("isotracksPhi_with_10_GeV_Cut","Isotracks Phi", 30, -TMath::Pi(), TMath::Pi());
+ 
   while(tr.getNextEvent())
   {
-    countIso=0;
-    //if(tr.getEvtNum() % 10000 == 0) std::cout << "Event #: " << tr.getEvtNum() << std::endl;
+    if(tr.getEvtNum() % 10000 == 0) std::cout << "Event #: " << tr.getEvtNum() << std::endl;
     //if(tr.getEvtNum() > 10000) break;
     const std::vector<TLorentzVector>& muonsLVec  = tr.getVec<TLorentzVector>("muonsLVec");
-    const std::vector<double>& muonsChargeVec = tr.getVec<double>("muonsCharge");
-    const std::vector<double>& muonsMiniIsoVec = tr.getVec<double>("muonsMiniIso");
+    const std::vector<float>& muonsChargeVec = tr.getVec<float>("muonsCharge");
+    const std::vector<float>& muonsMiniIsoVec = tr.getVec<float>("muonsMiniIso");
     const std::vector<int>& muonsFlagTightVec = tr.getVec<int>("muonsFlagTight");
     //const std::vector<int>& muonsFlagLooseVec = tr.getVec<int>("muonsFlagLoose");
     //std::cout<<"debug"<<std::endl;
     const std::vector<int>& muonsFlagMediumVec = tr.getVec<int>("muonsFlagMedium");
     const std::vector<TLorentzVector>& elesLVec  = tr.getVec<TLorentzVector>("elesLVec");
-     const std::vector<double>& elesChargeVec = tr.getVec<double>("elesCharge");
-    const std::vector<double>& elesMiniIsoVec = tr.getVec<double>("elesMiniIso");
+     const std::vector<float>& elesChargeVec = tr.getVec<float>("elesCharge");
+    const std::vector<float>& elesMiniIsoVec = tr.getVec<float>("elesMiniIso");
     //const std::vector<int>& elesFlagVetoVec = tr.getVec<int>("elesFlagVeto");
     const std::vector<int>& vetoElectronIDVec = tr.getVec<int>("vetoElectronID");
-    const std::vector<double>& recoJetsBtag_0Vec = tr.getVec<double>("recoJetsBtag_0");
-    const std::vector<double>& elesFlagMediumVec = tr.getVec<double>("elesFlagMedium");
+    //const std::vector<float>& recoJetsBtag_0Vec = tr.getVec<float>("recoJetsBtag_0");
+    //const std::vector<float>& elesFlagMediumVec = tr.getVec<float>("elesFlagMedium");
     const std::vector<TLorentzVector>& jetsLVec = tr.getVec<TLorentzVector>("jetsLVec");
     const std::vector<TLorentzVector>& gammaLVec = tr.getVec<TLorentzVector>("gammaLVec");
     const std::vector<int>& loosePhotonIDVec = tr.getVec<int>("loosePhotonID");
@@ -179,107 +164,84 @@
     const std::vector<TLorentzVector>& isotracksLVec = tr. getVec<TLorentzVector>("loose_isoTrksLVec");
     
     if(ucsb_tuples){
-	totalevents -> Fill(7);
+      totalevents -> Fill(7);
     }
     else{
-	totalevents -> Fill(2);
+      totalevents -> Fill(2);
     }
     
     leadingJetPt -> Fill(jetsLVec[0].Pt());
     leadingJetPhi -> Fill(jetsLVec[0].Phi());
     leadingJetEta -> Fill(jetsLVec[0].Eta());
-    leadingJets++;
+    
     if(1<jetsLVec.size()){
       secondLeadingJetPt -> Fill(jetsLVec[1].Pt());
       secondLeadingJetPhi -> Fill(jetsLVec[1].Phi());
       secondLeadingJetEta -> Fill(jetsLVec[1].Eta());
-      secondLeadingJets++;
     }
-     if(2<jetsLVec.size()){
+    if(2<jetsLVec.size()){
       thirdLeadingJetPt -> Fill(jetsLVec[2].Pt());
       thirdLeadingJetPhi -> Fill(jetsLVec[2].Phi());
       thirdLeadingJetEta -> Fill(jetsLVec[2].Eta());
-      thirdLeadingJets++;
     }
-     if(3<jetsLVec.size()){
+    if(3<jetsLVec.size()){
       fourthLeadingJetPt -> Fill(jetsLVec[3].Pt());
       fourthLeadingJetPhi -> Fill(jetsLVec[3].Phi());
       fourthLeadingJetEta -> Fill(jetsLVec[3].Eta());
-      fourthLeadingJets++;
     }
-     for(int i = 0; i < jetsLVec.size(); i++){
+    for(int i = 0; i < jetsLVec.size(); i++){
+      if(jetsLVec[i].Pt()>20){
 	jetPt -> Fill(jetsLVec[i].Pt());
 	jetPhi -> Fill(jetsLVec[i].Phi());
 	jetEta -> Fill(jetsLVec[i].Eta());
-	if(jetsLVec[i].Pt()>5){
-	  countPt5++;
-	}
-	if(jetsLVec[i].Pt()>10){
-          countPt10++;
-        }
-	if(jetsLVec[i].Pt()>15){
-          countPt15++;
-        }
-	if(jetsLVec[i].Pt()>20){
-          countPt20++;
-        }
-	if(jetsLVec[i].Pt()>25){
-          countPt25++;
-        }
-	if(jetsLVec[i].Pt()>30){
-          countPt30++;
-        }
-	if(jetsLVec[i].Pt()>35){
-          countPt35++;
-        }
-	totalJets++;
-    }
-    //for(int i = 0; i < ak8JetsLVec.size(); i++){
-    //  ak8JetPt -> Fill(ak8JetsLVec[i].Pt());
-    //  ak8JetPhi -> Fill(ak8JetsLVec[i].Phi());
-    //  ak8JetEta -> Fill(ak8JetsLVec[i].Eta());
-    //}
-    metPt -> Fill(tr.getVar<double>("met"));
-    metPhi -> Fill(tr.getVar<double>("metphi"));
-    for(int i = 0; i < muonsLVec.size(); i++){
-      if(muonsMiniIsoVec.size()!=muonsLVec.size()){
-        countM++;
       }
+    }
+    /*
+      for(int i = 0; i < ak8JetsLVec.size(); i++){
+      ak8JetPt -> Fill(ak8JetsLVec[i].Pt());
+      ak8JetPhi -> Fill(ak8JetsLVec[i].Phi());
+      ak8JetEta -> Fill(ak8JetsLVec[i].Eta());
+      }
+    */
+    metPt -> Fill(tr.getVar<float>("met"));
+    metPhi -> Fill(tr.getVar<float>("metphi"));
+    for(int i = 0; i < muonsLVec.size(); i++){
       if(muonsMiniIsoVec[i]<.2){
     	muonsPt -> Fill(muonsLVec[i].Pt());
         muonsEta -> Fill(muonsLVec[i].Eta());
         muonsPhi -> Fill(muonsLVec[i].Phi());
       }
     }
-     for(int i = 0; i < muonsChargeVec.size(); i++){
-        muonsCharge -> Fill(muonsChargeVec[i]);
+    for(int i = 0; i < muonsChargeVec.size(); i++){
+      muonsCharge -> Fill(muonsChargeVec[i]);
     }
     for(int i = 0; i < muonsMiniIsoVec.size(); i++){
-        muonsMiniIso -> Fill(muonsMiniIsoVec[i]);
+      muonsMiniIso -> Fill(muonsMiniIsoVec[i]);
     }
     for(int i = 0; i < muonsFlagTightVec.size(); i++){
-	if(muonsFlagTightVec[i] == 1){
-        	muonsFlagTightPt -> Fill(muonsLVec[i].Pt());
-                muonsFlagTightEta -> Fill(muonsLVec[i].Eta());
-                muonsFlagTightPhi -> Fill(muonsLVec[i].Phi());
-	}
+      if(muonsFlagTightVec[i] == 1){
+	muonsFlagTightPt -> Fill(muonsLVec[i].Pt());
+	muonsFlagTightEta -> Fill(muonsLVec[i].Eta());
+	muonsFlagTightPhi -> Fill(muonsLVec[i].Phi());
+      }
     }
     for(int i = 0; i < muonsFlagMediumVec.size(); i++){
-        if(muonsFlagMediumVec[i] == 1){
-                muonsFlagMediumPt -> Fill(muonsLVec[i].Pt());
-		muonsFlagMediumEta -> Fill(muonsLVec[i].Eta());
-                muonsFlagMediumPhi -> Fill(muonsLVec[i].Phi());
-         }
+      if(muonsFlagMediumVec[i] == 1){
+	muonsFlagMediumPt -> Fill(muonsLVec[i].Pt());
+	muonsFlagMediumEta -> Fill(muonsLVec[i].Eta());
+	muonsFlagMediumPhi -> Fill(muonsLVec[i].Phi());
+      }
     }
-    
-    //for(int i = 0; i < muonsFlagLooseVec.size(); i++){
-    //  if(muonsFlagLooseVec[i] == 1){
-    //	muonsFlagLoosePt -> Fill(muonsLVec[i].Pt());
-    //	muonsFlagLooseEta -> Fill(muonsLVec[i].Eta());
-    //	muonsFlagLoosePhi -> Fill(muonsLVec[i].Phi());
-    //}
-    //}
-     for(int i = 0; i < loosePhotonIDVec.size(); i++){
+    /*
+      for(int i = 0; i < muonsFlagLooseVec.size(); i++){
+      if(muonsFlagLooseVec[i] == 1){
+      muonsFlagLoosePt -> Fill(muonsLVec[i].Pt());
+      muonsFlagLooseEta -> Fill(muonsLVec[i].Eta());
+      muonsFlagLoosePhi -> Fill(muonsLVec[i].Phi());
+      }
+      }
+    */
+    for(int i = 0; i < loosePhotonIDVec.size(); i++){
       if(loosePhotonIDVec[i] == 1){
 	if(gammaLVec[i].Pt()>100){
 	  loosePhotonIDPt -> Fill(gammaLVec[i].Pt());
@@ -300,101 +262,85 @@
     for(int i = 0; i < tightPhotonIDVec.size(); i++){
       if(tightPhotonIDVec[i] == 1){
 	if(gammaLVec[i].Pt()>100){
-        tightPhotonIDPt -> Fill(gammaLVec[i].Pt());
-        tightPhotonIDEta -> Fill(gammaLVec[i].Eta());
-        tightPhotonIDPhi -> Fill(gammaLVec[i].Phi());
+	  tightPhotonIDPt -> Fill(gammaLVec[i].Pt());
+	  tightPhotonIDEta -> Fill(gammaLVec[i].Eta());
+	  tightPhotonIDPhi -> Fill(gammaLVec[i].Phi());
 	}
       }
     }
-     for(int i = 0; i < elesLVec.size(); i++){
-      //if(elesLVec[i].Pt()>20){
-       elesPt -> Fill(elesLVec[i].Pt());
-       elesEta -> Fill(elesLVec[i].Eta());
-       elesPhi -> Fill(elesLVec[i].Phi());
-	 //if(elesLVec[i].Pt() > 5 && -2.4 < elesLVec[i].Eta() < 2.4){
-	   //elesCount++;
-		// }
-       //}
-       if(elesMiniIsoVec[i]<0.1){
-	 countIso++;
-	 }
-    } 
-    if(countIso!=vetoElectronIDVec.size()){
-      miniIsoDiff -> Fill(vetoElectronIDVec.size()-countIso);
+    for(int i = 0; i < elesLVec.size(); i++){
+      if(elesLVec[i].Pt()>50){
+	elesPt -> Fill(elesLVec[i].Pt());
+	elesEta -> Fill(elesLVec[i].Eta());
+	elesPhi -> Fill(elesLVec[i].Phi());
+      }
     }
-  
     for(int i = 0; i < isotracksLVec.size(); i++){
-      isotracksPt -> Fill(isotracksLVec[i].Pt());
-      isotracksEta -> Fill(isotracksLVec[i].Eta());
-      isotracksPhi -> Fill(isotracksLVec[i].Phi());
+      if(isotracksLVec[i].Pt()>10){
+	isotracksPt -> Fill(isotracksLVec[i].Pt());
+	isotracksEta -> Fill(isotracksLVec[i].Eta());
+	isotracksPhi -> Fill(isotracksLVec[i].Phi());
+      }
     }
-   
+    
     for(int i = 0; i < elesChargeVec.size(); i++){
-      //if(elesLVec[i].Pt()>20){   
-	elesCharge -> Fill(elesChargeVec[i]);
-	//}
-      }
+      elesCharge -> Fill(elesChargeVec[i]);
+    }
     for(int i = 0; i < elesMiniIsoVec.size(); i++){
-      //if(elesLVec[i].Pt()>20){   
-	elesMiniIso -> Fill(elesMiniIsoVec[i]);
-	//}
+      elesMiniIso -> Fill(elesMiniIsoVec[i]);
+    }
+    /*
+      for(int i = 0; i < elesFlagVetoVec.size(); i++){
+      if(elesFlagVetoVec[i] == 1 && elesMiniIsoVec[i]<0.1){
+      elesFlagVetoPt -> Fill(elesLVec[i].Pt());
+      elesFlagVetoEta -> Fill(elesLVec[i].Eta());
+      elesFlagVetoPhi -> Fill(elesLVec[i].Phi());
       }
-   
-    //for(int i = 0; i < elesFlagVetoVec.size(); i++){
-    if(ucsb_tuples){
-      for(int i = 0; i < vetoElectronIDVec.size(); i++){
-	if(vetoElectronIDVec[i] == 1){
+      }
+    */
+    for(int i = 0; i < vetoElectronIDVec.size(); i++){
+      if(vetoElectronIDVec[i] == 1){
+	if(ucsb_tuples){
+	  if(elesMiniIsoVec[i]<.1){
+	    vetoElectronIDPt -> Fill(elesLVec[i].Pt());
+	    vetoElectronIDEta -> Fill(elesLVec[i].Eta());
+	    vetoElectronIDPhi -> Fill(elesLVec[i].Phi());
+	  }
+	}
+	else{
 	  vetoElectronIDPt -> Fill(elesLVec[i].Pt());
 	  vetoElectronIDEta -> Fill(elesLVec[i].Eta());
-	  vetoElectronIDPhi -> Fill(elesLVec[i].Phi());
-	}                                                           
-      }
-    }
-    else{
-      for(int i = 0; i < elesLVec.size(); i++){
-	if(elesMiniIsoVec[i]<0.1){
-	  vetoElectronIDPt -> Fill(elesLVec[i].Pt());
-          vetoElectronIDEta -> Fill(elesLVec[i].Eta());
-          vetoElectronIDPhi -> Fill(elesLVec[i].Phi());
+	  vetoElectronIDPhi -> Fill(elesLVec[i].Phi());    
 	}
-      }
+      }                                                           
     }
-    for(int i = 0; i < recoJetsBtag_0Vec.size(); i++){
-      //if(recoJetBtagVec[i] == 1){
+    
+    /*
+      for(int i = 0; i < recoJetsBtag_0Vec.size(); i++){
+      if(recoJetBtagVec[i] == 1){
       const float cutCSVS = 0.8484;
-	if(recoJetsBtag_0Vec[i] >= cutCSVS){
-	  recoJetsBtag_0Pt -> Fill(jetsLVec[i].Pt());
-	  recoJetsBtag_0Eta -> Fill(jetsLVec[i].Eta());
-	  recoJetsBtag_0Phi -> Fill(jetsLVec[i].Phi());
-	  count++;
-	}
-	//}
-    }
-     for(int i = 0; i < elesFlagMediumVec.size(); i++){
-      //if(elesLVec[i].Pt()>20){   
-	if(elesFlagMediumVec[i] == 1){
-	  elesFlagMediumPt -> Fill(elesLVec[i].Pt());
-	  elesFlagMediumEta -> Fill(elesLVec[i].Eta());
-	  elesFlagMediumPhi -> Fill(elesLVec[i].Phi());
-         } 
-	//}
-    }
+      if(recoJetsBtag_0Vec[i] >= cutCSVS){
+      recoJetsBtag_0Pt -> Fill(jetsLVec[i].Pt());
+      recoJetsBtag_0Eta -> Fill(jetsLVec[i].Eta());
+      recoJetsBtag_0Phi -> Fill(jetsLVec[i].Phi());
+      count++;
+      }
+      }
+      }
+    */
+    
+    /*
+      for(int i = 0; i < elesFlagMediumVec.size(); i++){
+      if(elesLVec[i].Pt()>20){   
+      if(elesFlagMediumVec[i] == 1){
+      elesFlagMediumPt -> Fill(elesLVec[i].Pt());
+      elesFlagMediumEta -> Fill(elesLVec[i].Eta());
+      elesFlagMediumPhi -> Fill(elesLVec[i].Phi());
+      } 
+      }
+      }
+    */
   }
-  std::cout << countM<<std::endl;
-  //std::cout << leadingJets << std::endl;
-  //std::cout << secondLeadingJets << std::endl;
-  //std::cout << thirdLeadingJets << std::endl;
-  //std::cout << fourthLeadingJets << std::endl;
-  //std::cout << totalJets << std::endl;
-  std::cout << "Jets above 5 GeV" << countPt5 << std::endl;
-  std::cout << "Jets above 10 GeV" << countPt10 << std::endl;
-  std::cout << "Jets above 15 GeV" << countPt15 << std::endl;
-  std::cout << "Jets above 20 GeV" << countPt20 << std::endl;
-  std::cout << "Jets above 25 GeV" << countPt25 << std::endl;
-  std::cout << "Jets above 30 GeV" << countPt30 << std::endl;
-  std::cout << "Jets above 35 GeV" << countPt35 << std::endl;
-  std::cout << count << std::endl;
-  std::cout << "vetoElectronID and MiniIso different this many times: "<< different << std::endl;
   OutFile->cd();
   muonsPt -> Write("", TObject::kOverwrite);
   muonsEta -> Write("", TObject::kOverwrite);
@@ -415,15 +361,17 @@
   elesPhi -> Write("", TObject::kOverwrite);
   elesCharge->Write("", TObject::kOverwrite);
   elesMiniIso->Write("", TObject::kOverwrite);
-  //elesFlagVetoPt ->Write("", TObject::kOverwrite);
-  //elesFlagVetoEta ->Write("", TObject::kOverwrite);
-  //elesFlagVetoPhi ->Write("", TObject::kOverwrite);
+  /*
+    elesFlagVetoPt ->Write("", TObject::kOverwrite);
+    elesFlagVetoEta ->Write("", TObject::kOverwrite);
+    elesFlagVetoPhi ->Write("", TObject::kOverwrite);
+  */
   vetoElectronIDPt ->Write("", TObject::kOverwrite);
   vetoElectronIDEta ->Write("", TObject::kOverwrite);
   vetoElectronIDPhi ->Write("", TObject::kOverwrite);
-  elesFlagMediumPt ->Write("", TObject::kOverwrite);
-  elesFlagMediumEta ->Write("", TObject::kOverwrite);
-  elesFlagMediumPhi ->Write("", TObject::kOverwrite);
+  //elesFlagMediumPt ->Write("", TObject::kOverwrite);
+  //elesFlagMediumEta ->Write("", TObject::kOverwrite);
+  //elesFlagMediumPhi ->Write("", TObject::kOverwrite);
   leadingJetPt->Write("", TObject::kOverwrite);
   leadingJetPhi->Write("", TObject::kOverwrite);
   leadingJetEta->Write("", TObject::kOverwrite);
@@ -442,9 +390,9 @@
   //ak8JetPt->Write("", TObject::kOverwrite);
   //ak8JetPhi->Write("", TObject::kOverwrite);
   //ak8JetEta->Write("", TObject::kOverwrite);
-  recoJetsBtag_0Pt->Write("", TObject::kOverwrite);
-  recoJetsBtag_0Phi->Write("", TObject::kOverwrite);
-  recoJetsBtag_0Eta->Write("", TObject::kOverwrite);
+  //recoJetsBtag_0Pt->Write("", TObject::kOverwrite);
+  //recoJetsBtag_0Phi->Write("", TObject::kOverwrite);
+  //recoJetsBtag_0Eta->Write("", TObject::kOverwrite);
   metPt->Write("", TObject::kOverwrite);
   metPhi->Write("", TObject::kOverwrite);
   isotracksPt -> Write("", TObject::kOverwrite);
@@ -459,7 +407,7 @@
   tightPhotonIDPt -> Write("", TObject::kOverwrite);
   tightPhotonIDPhi -> Write("", TObject::kOverwrite);
   tightPhotonIDEta -> Write("", TObject::kOverwrite);
-   totalevents -> Write("", TObject::kOverwrite);
-   miniIsoDiff -> Write("",TObject::kOverwrite);
-  OutFile->Close();
+  totalevents -> Write("", TObject::kOverwrite);
+  miniIsoDiff -> Write("",TObject::kOverwrite);
+  OutFile->Close(); 
 }
