@@ -79,9 +79,9 @@
     TH1* tightPhotonIDEta = new TH1D("tightPhotonIDEta", "TightPhotonIDEta", 30, -3, 3);
     TH1* muonsCharge = new TH1D("muonsCharge","MuonCharge", 30, -50, 50);
     TH1* muonsMiniIso = new TH1D("muonsMiniIso", "MuonMiniIso", 30, 0, 500);
-    //TH1* muonsFlagLoosePt = new TH1D("muonsFlagLoosePt","MuonFlagLoosePt", 30, 0, 500);
-    //TH1* muonsFlagLooseEta = new TH1D("muonsFlagLooseEta","MuonFlagLooseEta", 30, -3, 3);
-    //TH1* muonsFlagLoosePhi = new TH1D("muonsFlagLoosePhi","MuonFlagLoosePhi", 30, -TMath::Pi(), TMath::Pi());
+    TH1* muonsFlagLoosePt = new TH1D("muonsFlagLoosePt","MuonFlagLoosePt", 30, 0, 500);
+    TH1* muonsFlagLooseEta = new TH1D("muonsFlagLooseEta","MuonFlagLooseEta", 30, -3, 3);
+    TH1* muonsFlagLoosePhi = new TH1D("muonsFlagLoosePhi","MuonFlagLoosePhi", 30, -TMath::Pi(), TMath::Pi());
     TH1* muonsFlagTightPt = new TH1D("muonsFlagTightPt","MuonFlagTightPt", 30, 0, 500);
     TH1* muonsFlagTightEta = new TH1D("muonsFlagTightEta","MuonFlagTightEta", 30, -3, 3);
     TH1* muonsFlagTightPhi = new TH1D("muonsFlagTightPhi","MuonFlagTightPhi", 30, -TMath::Pi(), TMath::Pi());
@@ -92,7 +92,7 @@
     TH1* muonsEta = new TH1D("muonsEta", "MuonEta", 30, -3, 3);
     TH1* muonsPhi = new TH1D("muonsPhi", "MuonPhi", 30, -TMath::Pi(), TMath::Pi());
     TH1* elesCharge = new TH1D("elesCharge","ElectronCharge", 30, -50, 50);
-    TH1* elesMiniIso = new TH1D("elesMiniIso", "ElectronMiniIso", 30, 0, 500);
+    TH1* elesMiniIso = new TH1D("elesMiniIso", "ElectronMiniIso", 30, 0, 5);
     /*
     TH1* elesFlagVetoPt = new TH1D("elesFlagVetoPt","ElectronFlagVetoPt", 30, 0, 500);
     TH1* elesFlagVetoEta = new TH1D("elesFlagVetoEta","ElectronFlagVetoEta", 30, -TMath::Pi(), TMath::Pi());
@@ -106,36 +106,36 @@
     TH1* elesFlagMediumEta = new TH1D("elesFlagMediumEta", "ElectronFlagMediumEta", 30, -3, 3);
     TH1* elesFlagMediumPhi = new TH1D("elesFlagMediumPhi", "EletronFlagMediumPhi", 30, -TMath::Pi(), TMath::Pi());
     */
-    TH1* elesPt = new TH1D("elesPt", "ElectronPt", 30, 0, 1000);
+    TH1* elesPt = new TH1D("elesPt", "ElectronPt", 30, 0, 500);
     TH1* elesEta = new TH1D("elesEta", "ElectronEta", 30, -3, 3);
     TH1* elesPhi = new TH1D("elesPhi", "ElectronPhi", 30, -TMath::Pi(), TMath::Pi());
-    TH1* jetPt = new TH1D("jetPt_with_20_GeV_Cut","Jet pt",30, 0,1000);
-    TH1* jetPhi = new TH1D("jetPhi_with_20_GeV_Cut","Jet phi",30,-5,5);
-    TH1* jetEta = new TH1D("jetEta_with_20_GeV_Cut","Jet eta",30,-3,3);
-     TH1* miniIsoDiff = new TH1D("miniIsoDiff","Mini Iso Diff",30,-5,5);
+    TH1* jetPt = new TH1D("jetPt","Jet pt",30, 0,300);
+    TH1* jetPhi = new TH1D("jetPhi","Jet phi",30,-5,5);
+    TH1* jetEta = new TH1D("jetEta","Jet eta",30,-3,3);
+    TH1* miniIsoDiff = new TH1D("miniIsoDiff","Mini Iso Diff",30,-5,5);
     //TH1* ak8JetPt = new TH1D("ak8JetPt","ak8 Jet pt",30, 0,1000);
     //TH1* ak8JetPhi = new TH1D("ak8JetPhi","ak8 Jet phi",30,-5,5);
     //TH1* ak8JetEta = new TH1D("ak8JetEta","ak8 Jet eta",30,-3,3);
-     //TH1* recoJetsBtag_0Pt = new TH1D("recoJetsBtag_0Pt","B-tagged Jet Pt",30, 0,1000);
-     //TH1* recoJetsBtag_0Eta = new TH1D("recoJetsBtag_0Eta","B-Tagged Jet Eta",30,-3,3);
-     //TH1* recoJetsBtag_0Phi = new TH1D("recoJetsBtag_0Phi","B-tagged Jet Phi",30,-5,5);
-    TH1* leadingJetPt = new TH1D("leadingJetPt","Leading Jet pt",30,0,1000);
+    //TH1* recoJetsBtag_0Pt = new TH1D("recoJetsBtag_0Pt","B-tagged Jet Pt",30, 0,1000);
+    //TH1* recoJetsBtag_0Eta = new TH1D("recoJetsBtag_0Eta","B-Tagged Jet Eta",30,-3,3);
+    //TH1* recoJetsBtag_0Phi = new TH1D("recoJetsBtag_0Phi","B-tagged Jet Phi",30,-5,5);
+    TH1* leadingJetPt = new TH1D("leadingJetPt","Leading Jet pt",30,0,500);
     TH1* leadingJetPhi = new TH1D("leadingJetPhi","Leading Jet phi",30,-5,5);
     TH1* leadingJetEta = new TH1D("leadingJetEta","Leading Jet eta",30,-3,3);
-    TH1* secondLeadingJetPt = new TH1D("secondLeadingJetPt","Second Leading Jet pt",30,0,1000);
+    TH1* secondLeadingJetPt = new TH1D("secondLeadingJetPt","Second Leading Jet pt",30,0,500);
     TH1* secondLeadingJetPhi = new TH1D("secondLeadingJetPhi","Second Leading Jet phi",30,-5,5);
     TH1* secondLeadingJetEta = new TH1D("secondLeadingJetEta","Second Leading Jet eta",30,-3,3);
     TH1* thirdLeadingJetPhi = new TH1D("thirdLeadingJetPhi","Third Leading Jet phi",30,-5,5);
-    TH1* thirdLeadingJetPt = new TH1D("thirdLeadingJetPt","Third Leading Jet pt",30,0,1000);
+    TH1* thirdLeadingJetPt = new TH1D("thirdLeadingJetPt","Third Leading Jet pt",30,0,500);
     TH1* thirdLeadingJetEta = new TH1D("thirdLeadingJetEta","Third Leading Jet eta",30,-3,3);
     TH1* fourthLeadingJetPhi = new TH1D("fourthLeadingJetPhi","Fourth Leading Jet phi",30,-5,5);
-    TH1* fourthLeadingJetPt = new TH1D("fourthLeadingJetPt","Fourth Leading Jet pt",30,0,1000);
+    TH1* fourthLeadingJetPt = new TH1D("fourthLeadingJetPt","Fourth Leading Jet pt",30,0,500);
     TH1* fourthLeadingJetEta = new TH1D("fourthLeadingJetEta","Fourth Leading Jet eta",30,-3,3);
-    TH1* metPt = new TH1D("metPt","MET pt",30,0,1000);
+    TH1* metPt = new TH1D("metPt","MET pt",30,0,500);
     TH1* metPhi = new TH1D("metPhi","MET phi",30,-5,5);
-    TH1* isotracksPt = new TH1D("isotracksPt_with_10_GeV_Cut","Isotracks Pt", 30, 0, 500);
-    TH1* isotracksEta = new TH1D("isotracksEta_with_10_GeV_Cut","Isotracks Eta", 30, -3, 3);
-    TH1* isotracksPhi = new TH1D("isotracksPhi_with_10_GeV_Cut","Isotracks Phi", 30, -TMath::Pi(), TMath::Pi());
+    TH1* isotracksPt = new TH1D("isotracksPt","Isotracks Pt", 30, 0, 500);
+    TH1* isotracksEta = new TH1D("isotracksEta","Isotracks Eta", 30, -3, 3);
+    TH1* isotracksPhi = new TH1D("isotracksPhi","Isotracks Phi", 30, -TMath::Pi(), TMath::Pi());
  
   while(tr.getNextEvent())
   {
@@ -145,8 +145,7 @@
     const std::vector<float>& muonsChargeVec = tr.getVec<float>("muonsCharge");
     const std::vector<float>& muonsMiniIsoVec = tr.getVec<float>("muonsMiniIso");
     const std::vector<int>& muonsFlagTightVec = tr.getVec<int>("muonsFlagTight");
-    //const std::vector<int>& muonsFlagLooseVec = tr.getVec<int>("muonsFlagLoose");
-    //std::cout<<"debug"<<std::endl;
+    const std::vector<int>& muonsFlagLooseVec = tr.getVec<int>("muonsFlagLoose");
     const std::vector<int>& muonsFlagMediumVec = tr.getVec<int>("muonsFlagMedium");
     const std::vector<TLorentzVector>& elesLVec  = tr.getVec<TLorentzVector>("elesLVec");
      const std::vector<float>& elesChargeVec = tr.getVec<float>("elesCharge");
@@ -160,7 +159,7 @@
     const std::vector<int>& loosePhotonIDVec = tr.getVec<int>("loosePhotonID");
     const std::vector<int>& mediumPhotonIDVec = tr.getVec<int>("mediumPhotonID");
     const std::vector<int>& tightPhotonIDVec = tr.getVec<int>("tightPhotonID");
-    //const std::vector<TLorentzVector>& ak8JetsLVec = tr.getVec<TLorentzVector>("ak8JetsLVec");
+    const std::vector<TLorentzVector>& ak8JetsLVec = tr.getVec<TLorentzVector>("ak8JetsLVec");
     const std::vector<TLorentzVector>& isotracksLVec = tr. getVec<TLorentzVector>("loose_isoTrksLVec");
     
     if(ucsb_tuples){
@@ -190,11 +189,11 @@
       fourthLeadingJetEta -> Fill(jetsLVec[3].Eta());
     }
     for(int i = 0; i < jetsLVec.size(); i++){
-      if(jetsLVec[i].Pt()>20){
+      //if(jetsLVec[i].Pt()>20){
 	jetPt -> Fill(jetsLVec[i].Pt());
 	jetPhi -> Fill(jetsLVec[i].Phi());
 	jetEta -> Fill(jetsLVec[i].Eta());
-      }
+	//}
     }
     /*
       for(int i = 0; i < ak8JetsLVec.size(); i++){
@@ -232,7 +231,7 @@
 	muonsFlagMediumPhi -> Fill(muonsLVec[i].Phi());
       }
     }
-    /*
+    
       for(int i = 0; i < muonsFlagLooseVec.size(); i++){
       if(muonsFlagLooseVec[i] == 1){
       muonsFlagLoosePt -> Fill(muonsLVec[i].Pt());
@@ -240,7 +239,7 @@
       muonsFlagLoosePhi -> Fill(muonsLVec[i].Phi());
       }
       }
-    */
+    
     for(int i = 0; i < loosePhotonIDVec.size(); i++){
       if(loosePhotonIDVec[i] == 1){
 	if(gammaLVec[i].Pt()>100){
@@ -286,9 +285,11 @@
     for(int i = 0; i < elesChargeVec.size(); i++){
       elesCharge -> Fill(elesChargeVec[i]);
     }
+    /*
     for(int i = 0; i < elesMiniIsoVec.size(); i++){
       elesMiniIso -> Fill(elesMiniIsoVec[i]);
     }
+    */
     /*
       for(int i = 0; i < elesFlagVetoVec.size(); i++){
       if(elesFlagVetoVec[i] == 1 && elesMiniIsoVec[i]<0.1){
@@ -299,7 +300,8 @@
       }
     */
     for(int i = 0; i < vetoElectronIDVec.size(); i++){
-      if(vetoElectronIDVec[i] == 1){
+      if(vetoElectronIDVec[i]){
+	/*
 	if(ucsb_tuples){
 	  if(elesMiniIsoVec[i]<.1){
 	    vetoElectronIDPt -> Fill(elesLVec[i].Pt());
@@ -308,10 +310,14 @@
 	  }
 	}
 	else{
+	*/  
+	//if(elesMiniIsoVec[i]<.1){
+	  elesMiniIso -> Fill(elesMiniIsoVec[i]);
 	  vetoElectronIDPt -> Fill(elesLVec[i].Pt());
 	  vetoElectronIDEta -> Fill(elesLVec[i].Eta());
 	  vetoElectronIDPhi -> Fill(elesLVec[i].Phi());    
-	}
+	  //}  
+	//}
       }                                                           
     }
     
@@ -350,9 +356,9 @@
   muonsFlagTightPt ->Write("", TObject::kOverwrite);
   muonsFlagTightEta ->Write("", TObject::kOverwrite);
   muonsFlagTightPhi ->Write("", TObject::kOverwrite);
-  //muonsFlagLoosePt ->Write("", TObject::kOverwrite);
-  //muonsFlagLooseEta ->Write("", TObject::kOverwrite);
-  //muonsFlagLoosePhi ->Write("", TObject::kOverwrite);
+  muonsFlagLoosePt ->Write("", TObject::kOverwrite);
+  muonsFlagLooseEta ->Write("", TObject::kOverwrite);
+  muonsFlagLoosePhi ->Write("", TObject::kOverwrite);
   muonsFlagMediumPt ->Write("", TObject::kOverwrite);
   muonsFlagMediumEta ->Write("", TObject::kOverwrite);
   muonsFlagMediumPhi ->Write("", TObject::kOverwrite);
